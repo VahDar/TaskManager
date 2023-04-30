@@ -30,10 +30,11 @@
                             <outlet property="delegate" destination="Wn9-KC-hoR" id="KDS-Re-s02"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="ie3-KW-uvX"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQz-al-Xbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782.4427480916029" y="71.83098591549296"/>
+            <point key="canvasLocation" x="943" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cEb-Fy-bYN">
@@ -45,6 +46,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wn9-KC-hoR" kind="relationship" relationship="rootViewController" id="HzO-Tv-jkE"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ibl-vu-4SW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
