@@ -10,11 +10,9 @@
 		FC06922729FEA56D00F3211B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06922629FEA56D00F3211B /* CategoryViewController.swift */; };
 		FC06922E29FEB20B00F3211B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06922C29FEB20B00F3211B /* CategoryCollectionViewCell.swift */; };
 		FC06922F29FEB20B00F3211B /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC06922D29FEB20B00F3211B /* CategoryCollectionViewCell.xib */; };
-		FC06923229FEDC6400F3211B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06923029FEDC6400F3211B /* CategoryTableViewCell.swift */; };
-		FC06923329FEDC6400F3211B /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC06923129FEDC6400F3211B /* CategoryTableViewCell.xib */; };
+		FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */; };
 		FCF4FA8029FAA56600B61F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA7F29FAA56600B61F20 /* AppDelegate.swift */; };
 		FCF4FA8229FAA56600B61F20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA8129FAA56600B61F20 /* SceneDelegate.swift */; };
-		FCF4FA8429FAA56600B61F20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA8329FAA56600B61F20 /* ViewController.swift */; };
 		FCF4FA8729FAA56600B61F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF4FA8529FAA56600B61F20 /* Main.storyboard */; };
 		FCF4FA8A29FAA56600B61F20 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA8829FAA56600B61F20 /* DataModel.xcdatamodeld */; };
 		FCF4FA8C29FAA56800B61F20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF4FA8B29FAA56800B61F20 /* Assets.xcassets */; };
@@ -25,12 +23,10 @@
 		FC06922629FEA56D00F3211B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		FC06922C29FEB20B00F3211B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC06922D29FEB20B00F3211B /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		FC06923029FEDC6400F3211B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		FC06923129FEDC6400F3211B /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		FCF4FA7C29FAA56600B61F20 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF4FA7F29FAA56600B61F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF4FA8129FAA56600B61F20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCF4FA8329FAA56600B61F20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FCF4FA8629FAA56600B61F20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCF4FA8929FAA56600B61F20 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
 		FCF4FA8B29FAA56800B61F20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,13 +54,12 @@
 			path = CategoryCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		FC06923529FEDC8A00F3211B /* CategoryTableViewCell */ = {
+		FCC42B7C2A0017A00052BCEC /* ItemViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FC06923029FEDC6400F3211B /* CategoryTableViewCell.swift */,
-				FC06923129FEDC6400F3211B /* CategoryTableViewCell.xib */,
+				FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */,
 			);
-			path = CategoryTableViewCell;
+			path = ItemViewController;
 			sourceTree = "<group>";
 		};
 		FCF4FA7329FAA56600B61F20 = {
@@ -86,14 +81,13 @@
 		FCF4FA7E29FAA56600B61F20 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
-				FC06923529FEDC8A00F3211B /* CategoryTableViewCell */,
+				FCC42B7C2A0017A00052BCEC /* ItemViewController */,
 				FC06923429FEDC6A00F3211B /* CategoryCollectionViewCell */,
 				FCF4FA9929FAA7F400B61F20 /* CategoryViewControllers */,
 				FCF4FA7F29FAA56600B61F20 /* AppDelegate.swift */,
 				FCF4FA8129FAA56600B61F20 /* SceneDelegate.swift */,
 				FCF4FA9729FAA79900B61F20 /* Views */,
 				FCF4FA9629FAA76700B61F20 /* Data Model */,
-				FCF4FA8329FAA56600B61F20 /* ViewController.swift */,
 				FCF4FA9829FAA7B000B61F20 /* Supporting Fields */,
 				FCF4FA9029FAA56800B61F20 /* Info.plist */,
 			);
@@ -192,7 +186,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC06922F29FEB20B00F3211B /* CategoryCollectionViewCell.xib in Resources */,
-				FC06923329FEDC6400F3211B /* CategoryTableViewCell.xib in Resources */,
 				FCF4FA8F29FAA56800B61F20 /* LaunchScreen.storyboard in Resources */,
 				FCF4FA8C29FAA56800B61F20 /* Assets.xcassets in Resources */,
 				FCF4FA8729FAA56600B61F20 /* Main.storyboard in Resources */,
@@ -207,11 +200,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC06922729FEA56D00F3211B /* CategoryViewController.swift in Sources */,
-				FCF4FA8429FAA56600B61F20 /* ViewController.swift in Sources */,
 				FCF4FA8029FAA56600B61F20 /* AppDelegate.swift in Sources */,
 				FCF4FA8229FAA56600B61F20 /* SceneDelegate.swift in Sources */,
-				FC06923229FEDC6400F3211B /* CategoryTableViewCell.swift in Sources */,
 				FC06922E29FEB20B00F3211B /* CategoryCollectionViewCell.swift in Sources */,
+				FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */,
 				FCF4FA8A29FAA56600B61F20 /* DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,16 +10,17 @@ import CoreData
 
 class CategoryViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var categoryArray = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(CategoryTableViewCell.nib(), forCellReuseIdentifier: CategoryTableViewCell.identifier)
-//        tableView.delegate = self
-        tableView.dataSource = self
+        collectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.indetifier)
+                collectionView.delegate = self
+                collectionView.dataSource = self
         loadCategories()
         
     }
@@ -32,8 +33,8 @@ class CategoryViewController: UIViewController {
         } catch {
             print("Error saving category \(error)")
         }
-        self.tableView.reloadData()
-        
+       
+        collectionView.reloadData()
     }
     
     func loadCategories(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
@@ -42,7 +43,7 @@ class CategoryViewController: UIViewController {
         } catch {
             print("Error fetching data from context category \(error)")
         }
-        tableView.reloadData()
+        collectionView.reloadData()
     }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -74,23 +75,26 @@ class CategoryViewController: UIViewController {
     
 }
 
-extension CategoryViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+extension CategoryViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifier, for: indexPath) as! CategoryTableViewCell
-        cell.configure(with: categoryArray)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.indetifier, for: indexPath) as! CategoryCollectionViewCell
+        cell.congigure(with: categoryArray[indexPath.row])
         return cell
     }
     
     
 }
 
-//extension CategoryViewController: UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 250.0
-//    }
-//}
+extension CategoryViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+    }
+}

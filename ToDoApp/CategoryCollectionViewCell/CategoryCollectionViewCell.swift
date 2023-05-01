@@ -9,6 +9,7 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var collectionViewCell: CategoryCollectionViewCell!
     @IBOutlet weak var nameLael: UILabel!
     
     static let indetifier = "CategoryCollectionViewCell"
@@ -24,6 +25,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
    public func congigure(with categoryArray: Category) {
         self.nameLael.text = categoryArray.name
+       self.collectionViewCell.layer.cornerRadius = 20
     }
 
 }
