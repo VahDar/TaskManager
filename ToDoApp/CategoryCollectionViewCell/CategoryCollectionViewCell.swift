@@ -25,8 +25,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
    public func congigure(with categoryArray: Category) {
         self.nameLael.text = categoryArray.name
-       self.collectionViewCell.layer.cornerRadius = 20
     }
+    
 
 }
 

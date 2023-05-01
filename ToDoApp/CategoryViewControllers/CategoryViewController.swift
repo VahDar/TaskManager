@@ -95,6 +95,20 @@ extension CategoryViewController: UICollectionViewDataSource {
 extension CategoryViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        
+        print("Selected!! \(categoryArray[indexPath.row])")
+        performSegue(withIdentifier: "goToItems", sender: self)
+
+        collectionView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! ItemTableViewController
+        
+        if let indexPath = collectionView.indexPathsForSelectedItems {
+            destinationVC.selectedCategory = categoryArray[indexPath.count]
+        }
+    }
+    
 }
