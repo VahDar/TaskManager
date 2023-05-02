@@ -82,19 +82,27 @@ class ItemTableViewController: UITableViewController {
         
         var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add new ToDo Item", message: "New Itme", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add New ToDo Item", message: "New Item", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            
             
             let newItem = Item(context: self.context)
             newItem.titel = textField.text!
             newItem.done = false
+            newItem.parentCategory = self.selectedCategory
             self.itemArray.append(newItem)
             
             self.saveItems()
         }
         
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new Item"
+            textField = alertTextField
+        }
+        
         alert.addAction(action)
+        
         present(alert, animated: true, completion: nil)
         
     }

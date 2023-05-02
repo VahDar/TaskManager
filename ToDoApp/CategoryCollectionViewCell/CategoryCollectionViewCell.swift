@@ -12,6 +12,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionViewCell: CategoryCollectionViewCell!
     @IBOutlet weak var nameLael: UILabel!
     
+        
     static let indetifier = "CategoryCollectionViewCell"
     
     static func nib() -> UINib {

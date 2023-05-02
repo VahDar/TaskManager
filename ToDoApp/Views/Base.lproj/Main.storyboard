@@ -47,31 +47,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hZN-r6-tou">
-                                <rect key="frame" x="0.0" y="154" width="393" height="664"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="6" minimumInteritemSpacing="6" id="LF3-u2-rTN">
-                                    <size key="itemSize" width="200" height="200"/>
-                                    <size key="estimatedItemSize" width="200" height="200"/>
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" id="iEL-PR-81c">
+                                <rect key="frame" x="0.0" y="302" width="393" height="516"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.89005774260000003" green="0.92648398880000005" blue="0.8705809712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fo8-bt-3mN">
+                                    <size key="itemSize" width="175" height="175"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="17" minY="15" maxX="17" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="1uX-m4-goa" id="g88-Rb-w8K"/>
+                                    <outlet property="delegate" destination="1uX-m4-goa" id="Gdh-c2-HLs"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yxs-xp-W40"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yxs-xp-W40" firstAttribute="trailing" secondItem="iEL-PR-81c" secondAttribute="trailing" id="6Ia-kf-0W4"/>
                             <constraint firstItem="yxs-xp-W40" firstAttribute="trailing" secondItem="CoP-dv-AuN" secondAttribute="trailing" constant="152" id="88c-Su-xfD"/>
-                            <constraint firstItem="yxs-xp-W40" firstAttribute="bottom" secondItem="hZN-r6-tou" secondAttribute="bottom" id="AFv-jh-ttt"/>
-                            <constraint firstItem="yxs-xp-W40" firstAttribute="trailing" secondItem="hZN-r6-tou" secondAttribute="trailing" id="HUI-LK-ePt"/>
+                            <constraint firstItem="yxs-xp-W40" firstAttribute="bottom" secondItem="iEL-PR-81c" secondAttribute="bottom" id="FtH-0I-H8s"/>
+                            <constraint firstItem="iEL-PR-81c" firstAttribute="top" secondItem="tHe-4I-IER" secondAttribute="bottom" constant="148" id="InR-rS-xDK"/>
                             <constraint firstItem="yxs-xp-W40" firstAttribute="trailing" secondItem="tHe-4I-IER" secondAttribute="trailing" constant="30" id="Our-y7-XBY"/>
-                            <constraint firstItem="hZN-r6-tou" firstAttribute="top" secondItem="tHe-4I-IER" secondAttribute="bottom" id="Ztc-CG-2XV"/>
                             <constraint firstItem="tHe-4I-IER" firstAttribute="top" secondItem="CoP-dv-AuN" secondAttribute="bottom" constant="12" id="a85-cj-RUX"/>
+                            <constraint firstItem="iEL-PR-81c" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" id="lGO-ZH-0Eq"/>
                             <constraint firstItem="CoP-dv-AuN" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" constant="151" id="m1c-zV-1IL"/>
                             <constraint firstItem="CoP-dv-AuN" firstAttribute="top" secondItem="yxs-xp-W40" secondAttribute="top" constant="5" id="mma-Nd-aNC"/>
-                            <constraint firstItem="hZN-r6-tou" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" id="pd9-VB-eA2"/>
                             <constraint firstItem="tHe-4I-IER" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" constant="30" id="wCz-5R-wKq"/>
                         </constraints>
                     </view>
@@ -83,8 +87,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="hZN-r6-tou" id="eOk-8q-lOq"/>
-                        <segue destination="xbc-zv-L5r" kind="show" identifier="goToItems" id="mS0-1z-gqF"/>
+                        <outlet property="collectionView" destination="iEL-PR-81c" id="yal-Ye-yOH"/>
+                        <segue destination="xbc-zv-L5r" kind="show" identifier="goToItems" id="2eM-HG-mQV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYm-rw-Rvu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -117,13 +121,12 @@
                     <navigationItem key="navigationItem" id="esV-M6-h6M">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7ax-QM-R4p">
                             <connections>
-                                <action selector="addButtonPressed:" destination="QOf-lO-77q" id="4WO-Zw-Iiu"/>
+                                <action selector="addButtonPressed:" destination="xbc-zv-L5r" id="xdw-Yj-n0N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05a-JO-08B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="QOf-lO-77q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1659" y="4"/>
         </scene>

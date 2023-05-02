@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -16,13 +16,16 @@ class CategoryViewController: UIViewController {
     
     var categoryArray = [Category]()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.indetifier)
-                collectionView.delegate = self
-                collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         loadCategories()
-        
+        setupGestureLongRecognizer()
+        setupTapsGesture()
     }
     //MARK: - Data Manipulation Methods
     
@@ -73,8 +76,59 @@ class CategoryViewController: UIViewController {
         
     }
     
+    // MARK: - Setup LongPress Gestur recognizer
+    private func setupGestureLongRecognizer() {
+        let gesturLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        gesturLongPress.minimumPressDuration = 0.5
+        gesturLongPress.delaysTouchesBegan = true
+        gesturLongPress.delegate = self
+        
+        self.collectionView.addGestureRecognizer(gesturLongPress)
+    }
+    
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        guard gestureRecognizer.state != .began else { return }
+        let point = gestureRecognizer.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: point)
+        if let index = indexPath {
+            print("long press")
+        } else {
+            print("Could not work long press")
+        }
+    }
+    
+    // MARK: - Setup Tap and Double Gesture
+    func setupTapsGesture() {
+        
+        // Single Tap
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleOneTap(_:)))
+        singleTap.numberOfTapsRequired = 1
+        collectionView.addGestureRecognizer(singleTap)
+//        collectionView.isUserInteractionEnabled = true
+        
+        // Double Tap
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
+        doubleTap.numberOfTapsRequired = 2
+        collectionView.addGestureRecognizer(doubleTap)
+        
+        singleTap.require(toFail: doubleTap)
+        singleTap.delaysTouchesBegan = true
+        doubleTap.delaysTouchesBegan = true
+        
+    }
+    
+    @objc func handleOneTap(_ sender: UITapGestureRecognizer) {
+        
+        print("One Tap")
+    }
+    
+    @objc func handleDoubleTap() {
+        print("Double Tap")
+    }
 }
 
+// MARK: - TableView DataSource Methods
 
 extension CategoryViewController: UICollectionViewDataSource {
     
@@ -95,17 +149,18 @@ extension CategoryViewController: UICollectionViewDataSource {
 extension CategoryViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        print("Selected!! \(categoryArray[indexPath.row])")
+        collectionView.deselectItem(at: indexPath, animated: true)
+//        print("Selected!! \(categoryArray[indexPath.row])")
         performSegue(withIdentifier: "goToItems", sender: self)
 
         collectionView.reloadData()
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
         let destinationVC = segue.destination as! ItemTableViewController
-        
+
         if let indexPath = collectionView.indexPathsForSelectedItems {
             destinationVC.selectedCategory = categoryArray[indexPath.count]
         }
