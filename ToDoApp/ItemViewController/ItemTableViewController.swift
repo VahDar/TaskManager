@@ -21,64 +21,53 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
-
-    //MARK: - TableView Datasource Method
+    // MARK : - TableView Datasource Method
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         itemArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         
         cell.textLabel?.text = itemArray[indexPath.row].titel
-        cell.accessoryType = itemArray[indexPath.row].done ? .checkmark: .none
+        
+        cell.accessoryType = itemArray[indexPath.row].done ? .checkmark : .none
+        
+//        if itemArray[indexPath.row].done == true {
+//            cell.accessoryType = .checkmark
+//        } else {
+//            cell.accessoryType = .none
+//        }
         
         return cell
     }
     
-    //MARK: - TableView DataSource Method
+    //MARK: - TableView Delegate Method
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         itemArray[indexPath.row].done.toggle()
         saveItems()
         
+//        if itemArray[indexPath.row].done == false {
+//            itemArray[indexPath.row].done = true
+//        } else {
+//            itemArray[indexPath.row].done = false
+//        }
+        
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
-    //MARK: - Data Manipulation Methods
+    //Mark: - Add New Item
     
-    func saveItems() {
-        do{
-            try context.save()
-        } catch {
-            print("Error saving context \(error)")
-        }
-        self.tableView.reloadData()
-    }
-    
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
-        
-        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-        
-        if let additionPredicte = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionPredicte])
-        } else {
-            request.predicate = categoryPredicate
-        }
-        
-        do {
-            itemArray = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
-        tableView.reloadData()
-    }
-    
-    // Add New Item
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addBarButtonPressed(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
         
@@ -104,9 +93,40 @@ class ItemTableViewController: UITableViewController {
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
-        
     }
     
+    func saveItems() {
+        
+        do {
+           try context.save()
+        } catch {
+           print("Error saving context \(error)")
+        }
+        self.tableView.reloadData()
+    }
     
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
+       
+        // Two things happen within this block of code when it is called depending on the arguments supplied or not supplied when the method is called.
+        // 1. Querry based on items belonging to selected category will be loaded up
+        //2. Querry based on the search bar request will be loaded up
+        
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+        
+        if let additionPredicate = predicate { // if here is a value present inside the variable "predicate", it means that the search bar request came in and the block of code here runs.
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionPredicate])
+        } else {
+            //Default request, load only items for selected category wich was querried.
+            request.predicate = categoryPredicate
+        }
+        
+        
+        do {
+            itemArray = try context.fetch(request) //Here, the context fetch our request from our db which will be loaded into the array of elements we created
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+        tableView.reloadData()
+    }
     
 }
