@@ -161,7 +161,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.indetifier, for: indexPath) as! CategoryCollectionViewCell
         
-       
+        cell.category = categoryArray[indexPath.row]
         cell.congigure()
         
         
