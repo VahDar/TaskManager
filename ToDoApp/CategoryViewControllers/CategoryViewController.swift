@@ -18,6 +18,11 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var indexPathforhendler: IndexPath?
     
+    private lazy var alertView: AlertView = {
+        let alertView: AlertView = AlertView.loadFromNib()
+        alertView.delegate = self
+        return alertView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +82,12 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    func setAlert() {
+        alertView = AlertView.loadFromNib()
+        view.addSubview(alertView)
+        alertView.center = view.center
+    }
+    
 //    // MARK: - Setup LongPress Gestur recognizer
     private func setupGestureLongRecognizer() {
         let gesturLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
@@ -94,12 +105,8 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if indexPath != nil {
             
-            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-            let delete = UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
-//                self.gesture.deleteItems(at: indexPath!.row)
-            })
-            alert.addAction(delete)
-            present(alert, animated: true, completion: nil)
+            setAlert()
+           
             print("long press")
         } else {
             print("Could not work long press")
