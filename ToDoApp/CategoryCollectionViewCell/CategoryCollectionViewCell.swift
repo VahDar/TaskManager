@@ -11,8 +11,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionViewCell: CategoryCollectionViewCell!
     @IBOutlet weak var nameLael: UILabel!
+    @IBOutlet var imageCheckMark: UIImageView!
+    var category: Category?
     
-        
     static let indetifier = "CategoryCollectionViewCell"
     
     static func nib() -> UINib {
@@ -24,8 +25,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-   public func congigure(with categoryArray: Category) {
-        self.nameLael.text = categoryArray.name
+    public func congigure() {
+        self.nameLael.text = category!.name
+        
+        switch category!.isSelected {
+        case true:
+            self.imageCheckMark.image = UIImage(named: "done")
+        case false:
+            self.imageCheckMark.image = UIImage(named: "no")
+        }
     }
     
 
