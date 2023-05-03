@@ -10,6 +10,7 @@
 		FC06922729FEA56D00F3211B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06922629FEA56D00F3211B /* CategoryViewController.swift */; };
 		FC06922E29FEB20B00F3211B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06922C29FEB20B00F3211B /* CategoryCollectionViewCell.swift */; };
 		FC06922F29FEB20B00F3211B /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC06922D29FEB20B00F3211B /* CategoryCollectionViewCell.xib */; };
+		FCB1D71E2A02DA4300ACC3DF /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB1D71D2A02DA4300ACC3DF /* AlertButton.swift */; };
 		FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */; };
 		FCF4FA8029FAA56600B61F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA7F29FAA56600B61F20 /* AppDelegate.swift */; };
 		FCF4FA8229FAA56600B61F20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA8129FAA56600B61F20 /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 		FC06922629FEA56D00F3211B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		FC06922C29FEB20B00F3211B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC06922D29FEB20B00F3211B /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		FCB1D71D2A02DA4300ACC3DF /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		FCF4FA7C29FAA56600B61F20 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF4FA7F29FAA56600B61F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 			path = CategoryCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		FCB1D71C2A02DA1E00ACC3DF /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				FCB1D71D2A02DA4300ACC3DF /* AlertButton.swift */,
+			);
+			path = CustomAlert;
+			sourceTree = "<group>";
+		};
 		FCC42B7C2A0017A00052BCEC /* ItemViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		FCF4FA7E29FAA56600B61F20 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCB1D71C2A02DA1E00ACC3DF /* CustomAlert */,
 				FCC42B7C2A0017A00052BCEC /* ItemViewController */,
 				FC06923429FEDC6A00F3211B /* CategoryCollectionViewCell */,
 				FCF4FA9929FAA7F400B61F20 /* CategoryViewControllers */,
@@ -201,6 +212,7 @@
 			files = (
 				FC06922729FEA56D00F3211B /* CategoryViewController.swift in Sources */,
 				FCF4FA8029FAA56600B61F20 /* AppDelegate.swift in Sources */,
+				FCB1D71E2A02DA4300ACC3DF /* AlertButton.swift in Sources */,
 				FCF4FA8229FAA56600B61F20 /* SceneDelegate.swift in Sources */,
 				FC06922E29FEB20B00F3211B /* CategoryCollectionViewCell.swift in Sources */,
 				FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SAT-O3-EX9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xYh-6p-Yt7">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -129,10 +129,133 @@
             </objects>
             <point key="canvasLocation" x="1659" y="4"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="YyD-fN-a4P">
+            <objects>
+                <viewController id="xYh-6p-Yt7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Szc-7d-eiR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="KVf-pv-3NP">
+                                <rect key="frame" x="33" y="313" width="327" height="226"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAZ-zc-gFW">
+                                <rect key="frame" x="53" y="363" width="40" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDz-bt-3gW">
+                                <rect key="frame" x="53" y="405" width="71" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert will gives you a notification at the exact time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFA-aP-EcS">
+                                <rect key="frame" x="53" y="444" width="287.66666666666669" height="14.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bw7-Ho-cPC">
+                                <rect key="frame" x="296" y="405" width="51" height="31"/>
+                            </switch>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="zPk-PW-CJS">
+                                <rect key="frame" x="74" y="483" width="271" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="mp3-oY-lJk" customClass="AlertButton" customModule="ToDoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="46"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="Gub-95-8au"/>
+                                            <constraint firstAttribute="width" constant="100" id="eIo-BV-IDK"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Delete Category" titleAlignment="center">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5Bb-XM-NnP" customClass="AlertButton" customModule="ToDoApp" customModuleProvider="target">
+                                        <rect key="frame" x="171" y="0.0" width="100" height="46"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="kpQ-No-7cJ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="SAVE" titleAlignment="center">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <datePicker contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAn-xw-OJ0">
+                                <rect key="frame" x="103" y="358" width="242" height="34.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="AAY-l2-jVV"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="704828889.98842204">
+                                    <!--2023-05-03 17:48:09 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="efE-To-Len"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
+                        <constraints>
+                            <constraint firstItem="zPk-PW-CJS" firstAttribute="trailing" secondItem="KVf-pv-3NP" secondAttribute="trailing" constant="-15" id="0MO-UR-Ter"/>
+                            <constraint firstItem="hAn-xw-OJ0" firstAttribute="trailing" secondItem="KVf-pv-3NP" secondAttribute="trailing" constant="-15" id="4Sw-zy-Me8"/>
+                            <constraint firstItem="Bw7-Ho-cPC" firstAttribute="top" secondItem="hAn-xw-OJ0" secondAttribute="bottom" constant="12.67" id="9Jx-pr-vIy"/>
+                            <constraint firstItem="oDz-bt-3gW" firstAttribute="top" secondItem="iAZ-zc-gFW" secondAttribute="bottom" constant="19" id="GGw-qt-l0o"/>
+                            <constraint firstItem="KVf-pv-3NP" firstAttribute="centerX" secondItem="Szc-7d-eiR" secondAttribute="centerX" id="Gxi-nB-QoQ"/>
+                            <constraint firstItem="hAn-xw-OJ0" firstAttribute="top" secondItem="KVf-pv-3NP" secondAttribute="top" constant="45" id="HoI-29-cmn"/>
+                            <constraint firstItem="hAn-xw-OJ0" firstAttribute="leading" secondItem="iAZ-zc-gFW" secondAttribute="trailing" constant="10" id="S2B-VO-BNY"/>
+                            <constraint firstItem="rFA-aP-EcS" firstAttribute="top" secondItem="Bw7-Ho-cPC" secondAttribute="bottom" constant="8" id="Vb2-dM-75R"/>
+                            <constraint firstItem="KVf-pv-3NP" firstAttribute="centerY" secondItem="Szc-7d-eiR" secondAttribute="centerY" id="WaT-ga-xSY"/>
+                            <constraint firstItem="zPk-PW-CJS" firstAttribute="top" secondItem="rFA-aP-EcS" secondAttribute="bottom" constant="24.670000000000002" id="clh-Ln-Ebf"/>
+                            <constraint firstItem="oDz-bt-3gW" firstAttribute="leading" secondItem="KVf-pv-3NP" secondAttribute="leading" constant="20" id="fd8-dh-NyC"/>
+                            <constraint firstItem="rFA-aP-EcS" firstAttribute="top" secondItem="oDz-bt-3gW" secondAttribute="bottom" constant="16" id="hgX-L7-jMb"/>
+                            <constraint firstItem="rFA-aP-EcS" firstAttribute="leading" secondItem="KVf-pv-3NP" secondAttribute="leading" constant="20" id="hkm-ME-PA7"/>
+                            <constraint firstItem="Bw7-Ho-cPC" firstAttribute="trailing" secondItem="KVf-pv-3NP" secondAttribute="trailing" constant="-15" id="igu-TG-RL3"/>
+                            <constraint firstItem="Bw7-Ho-cPC" firstAttribute="leading" secondItem="oDz-bt-3gW" secondAttribute="trailing" constant="172" id="k4J-MT-Xzp"/>
+                            <constraint firstItem="iAZ-zc-gFW" firstAttribute="leading" secondItem="KVf-pv-3NP" secondAttribute="leading" constant="20" id="sHZ-sX-G05"/>
+                            <constraint firstItem="zPk-PW-CJS" firstAttribute="bottom" secondItem="KVf-pv-3NP" secondAttribute="bottom" constant="-10" id="uuJ-CW-4D6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBb-J1-MbA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2390.0763358778627" y="1.4084507042253522"/>
+        </scene>
     </scenes>
+    <designables>
+        <designable name="5Bb-XM-NnP">
+            <size key="intrinsicContentSize" width="67" height="34.333333333333336"/>
+        </designable>
+        <designable name="mp3-oY-lJk">
+            <size key="intrinsicContentSize" width="153.33333333333334" height="34.333333333333336"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="bg" width="327" height="226"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

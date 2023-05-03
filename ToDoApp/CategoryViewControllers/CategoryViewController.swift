@@ -64,7 +64,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
             self.saveCategories()
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .default) { _ in}
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in}
         
         alert.addTextField{ (alertTextfield) in
             alertTextfield.placeholder = "Create a new category"
@@ -93,6 +93,13 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if indexPath != nil {
+            
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let delete = UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+//                self.gesture.deleteItems(at: indexPath!.row)
+            })
+            alert.addAction(delete)
+            present(alert, animated: true, completion: nil)
             print("long press")
         } else {
             print("Could not work long press")
