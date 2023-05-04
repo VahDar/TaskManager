@@ -24,6 +24,15 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         return alertView
     }()
     
+    // create property UIVisualEffect
+    
+    let visualEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let view = UIVisualEffectView(effect: blurEffect)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.indetifier)
@@ -31,7 +40,44 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         loadCategories()
         setupGestureLongRecognizer()
         setupTapsGesture()
+        setupVisualEffect()
     }
+    
+    // MARK: - setup UIVisualEffect
+    
+    func setupVisualEffect() {
+        view.addSubview(visualEffectView)
+        visualEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        visualEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        visualEffectView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        visualEffectView.alpha = 0
+    }
+    
+    func animateIn() {
+        
+        alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        alertView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.visualEffectView.alpha = 1
+            self.alertView.alpha = 1
+            self.alertView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut() {
+    
+        UIView.animate(withDuration: 0.4, animations: {
+            self.visualEffectView.alpha = 0
+            self.alertView.alpha = 0
+            self.alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        }) { _ in
+            self.alertView.removeFromSuperview()
+        }
+        
+    }
+    
     //MARK: - Data Manipulation Methods
     
     func saveCategories() {
@@ -53,7 +99,9 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         collectionView.reloadData()
     }
-
+    
+ // MARK: - Add button setup
+    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         
@@ -82,10 +130,12 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    // MARK: - Set AlertView
+    
     func setAlert() {
-        alertView = AlertView.loadFromNib()
         view.addSubview(alertView)
         alertView.center = view.center
+        alertView.configure()
     }
     
 //    // MARK: - Setup LongPress Gestur recognizer
@@ -106,7 +156,8 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         if indexPath != nil {
             
             setAlert()
-           
+            animateIn()
+            
             print("long press")
         } else {
             print("Could not work long press")
@@ -185,5 +236,17 @@ extension CategoryViewController: UICollectionViewDataSource {
     
 }
 
-
+// MARK: - AlertView Delegate
+extension CategoryViewController: AlertDelegate {
+    
+    func deleteButtonPressed() {
+        animateOut()
+    }
+    
+    func saveButtonPressed() {
+        animateOut()
+    }
+    
+    
+}
 

@@ -68,6 +68,9 @@
                                 <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="deleteButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="Uam-I0-TwC"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Ft7-1f-5hy" customClass="AlertButton" customModule="ToDoApp" customModuleProvider="target">
                             <rect key="frame" x="171" y="0.0" width="100" height="46"/>
@@ -80,6 +83,9 @@
                                 <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="hxf-50-tAy"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

@@ -25,13 +25,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ar-cY-QLi">
-                                        <rect key="frame" x="17" y="77" width="141" height="20.333333333333329"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no" translatesAutoresizingMaskIntoConstraints="NO" id="4Ql-AY-VXH">
                                         <rect key="frame" x="142" y="12" width="25" height="25"/>
                                         <constraints>
@@ -39,11 +32,51 @@
                                             <constraint firstAttribute="height" constant="25" id="aMh-1y-u6h"/>
                                         </constraints>
                                     </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTg-J4-ulP">
+                                        <rect key="frame" x="8" y="12" width="62" height="71"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="LFA-eW-Bdl"/>
+                                            <constraint firstAttribute="width" constant="62" id="rSb-Bu-EoZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qTA-6x-8Oi">
+                                        <rect key="frame" x="78" y="12" width="50" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="2ov-EB-EeE"/>
+                                            <constraint firstAttribute="width" constant="50" id="OdQ-nT-q0y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKz-8l-oIL">
+                                        <rect key="frame" x="78" y="48" width="50" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Ef6-H2-ihm"/>
+                                            <constraint firstAttribute="width" constant="50" id="GQb-UL-k55"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ar-cY-QLi">
+                                        <rect key="frame" x="8" y="96" width="141" height="20.333333333333329"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="4Ql-AY-VXH" secondAttribute="trailing" constant="8" id="1w1-Ob-64D"/>
+                                    <constraint firstItem="qTA-6x-8Oi" firstAttribute="top" secondItem="MwD-Ev-kUK" secondAttribute="top" constant="12" id="CXk-Qf-YK4"/>
+                                    <constraint firstItem="QTg-J4-ulP" firstAttribute="top" secondItem="MwD-Ev-kUK" secondAttribute="top" constant="12" id="Hfv-a2-eih"/>
                                     <constraint firstItem="4Ql-AY-VXH" firstAttribute="top" secondItem="MwD-Ev-kUK" secondAttribute="top" constant="12" id="Iwp-O6-XY1"/>
+                                    <constraint firstItem="qTA-6x-8Oi" firstAttribute="leading" secondItem="MwD-Ev-kUK" secondAttribute="leading" constant="78" id="Y7v-Xs-vd0"/>
+                                    <constraint firstItem="EKz-8l-oIL" firstAttribute="leading" secondItem="MwD-Ev-kUK" secondAttribute="leading" constant="78" id="fKY-q2-958"/>
+                                    <constraint firstItem="EKz-8l-oIL" firstAttribute="top" secondItem="qTA-6x-8Oi" secondAttribute="bottom" constant="2" id="ocV-0u-9Rl"/>
+                                    <constraint firstItem="QTg-J4-ulP" firstAttribute="leading" secondItem="MwD-Ev-kUK" secondAttribute="leading" constant="8" id="xaY-eg-3WP"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -66,8 +99,11 @@
             <size key="customSize" width="256" height="181"/>
             <connections>
                 <outlet property="collectionViewCell" destination="A79-kT-IpR" id="qdz-EE-ub5"/>
+                <outlet property="dayAndMonthField" destination="qTA-6x-8Oi" id="9ae-LY-FV7"/>
+                <outlet property="dayField" destination="QTg-J4-ulP" id="fa3-pQ-p2r"/>
                 <outlet property="imageCheckMark" destination="4Ql-AY-VXH" id="bjH-fH-Wfv"/>
                 <outlet property="nameLael" destination="3Ar-cY-QLi" id="4LE-8c-vBD"/>
+                <outlet property="timeField" destination="EKz-8l-oIL" id="fFP-6G-rlH"/>
             </connections>
             <point key="canvasLocation" x="240.45801526717557" y="65.845070422535215"/>
         </collectionViewCell>

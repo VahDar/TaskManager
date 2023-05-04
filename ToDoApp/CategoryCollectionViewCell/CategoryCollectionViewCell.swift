@@ -12,6 +12,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionViewCell: CategoryCollectionViewCell!
     @IBOutlet weak var nameLael: UILabel!
     @IBOutlet var imageCheckMark: UIImageView!
+    @IBOutlet weak var dayField: UITextField!
+    @IBOutlet weak var dayAndMonthField: UITextField!
+    @IBOutlet weak var timeField: UITextField!
+    
     var category: Category?
     
     static let indetifier = "CategoryCollectionViewCell"
@@ -23,6 +27,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    public func setTexField(dayField: String, dayAndMonthField: String, timeField: String) {
+        self.dayField.text = dayField
+        self.dayAndMonthField.text = dayAndMonthField
+        self.timeField.text = timeField
     }
     
     public func congigure() {
