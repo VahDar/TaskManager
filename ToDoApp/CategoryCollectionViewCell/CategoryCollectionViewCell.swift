@@ -13,10 +13,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLael: UILabel!
     @IBOutlet var imageCheckMark: UIImageView!
     @IBOutlet weak var dayField: UITextField!
-    @IBOutlet weak var dayAndMonthField: UITextField!
+    @IBOutlet weak var monthField: UITextField!
     @IBOutlet weak var timeField: UITextField!
+   
+    var category: Category!
     
-    var category: Category?
     
     static let indetifier = "CategoryCollectionViewCell"
     
@@ -26,25 +27,50 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        setupGestureLongRecognizer()
+        
         // Initialization code
     }
     
-    public func setTexField(dayField: String, dayAndMonthField: String, timeField: String) {
+   
+    
+    public func setTexField(dayField: String, dayAndMonthField: String, timeField: String ) {
         self.dayField.text = dayField
-        self.dayAndMonthField.text = dayAndMonthField
+        self.monthField.text = dayAndMonthField
         self.timeField.text = timeField
     }
     
     public func congigure() {
         self.nameLael.text = category!.name
+        dayField.borderStyle = .none
+        monthField.borderStyle = .none
+        timeField.borderStyle = .none
         
-        switch category!.isSelected {
+        switch category.isSelected {
         case true:
             self.imageCheckMark.image = UIImage(named: "done")
         case false:
-            self.imageCheckMark.image = UIImage(named: "no")
+            self.imageCheckMark.image = UIImage(named: "Calendar2")
         }
+        self.dayField.text = category.dayField
+        self.monthField.text = category.dayAndMonthFiled
+        self.timeField.text = category.timeField
     }
+    private func setupGestureLongRecognizer() {
+        let gesturLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        gesturLongPress.minimumPressDuration = 0.5
+        gesturLongPress.delaysTouchesBegan = true
+//        gesturLongPress.delegate = self
+
+        self.addGestureRecognizer(gesturLongPress)
+    }
+    
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+
+        guard gestureRecognizer.state != .began else { return }
+
+            print("long press")
+        }
     
 
 }

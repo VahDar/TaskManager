@@ -41,7 +41,12 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         setupGestureLongRecognizer()
         setupTapsGesture()
         setupVisualEffect()
+//        let alertView = AlertView()
+//        let categoryCell = CategoryCollectionViewCell()
+//        alertView.configureCell(with: categoryCell)
     }
+    
+    
     
     // MARK: - setup UIVisualEffect
     
@@ -138,7 +143,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         alertView.configure()
     }
     
-//    // MARK: - Setup LongPress Gestur recognizer
+    // MARK: - Setup LongPress Gestur recognizer
     private func setupGestureLongRecognizer() {
         let gesturLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         gesturLongPress.minimumPressDuration = 0.5
@@ -153,10 +158,11 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         guard gestureRecognizer.state != .began else { return }
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
-        if indexPath != nil {
-            
+        if let indexPath {
+            alertView.data = categoryArray[indexPath.row]
             setAlert()
             animateIn()
+            collectionView.reloadData()
             
             print("long press")
         } else {
@@ -241,10 +247,14 @@ extension CategoryViewController: AlertDelegate {
     
     func deleteButtonPressed() {
         animateOut()
+        
     }
     
     func saveButtonPressed() {
         animateOut()
+        alertView.doneAction()
+        collectionView.reloadData()
+        saveCategories()
     }
     
     

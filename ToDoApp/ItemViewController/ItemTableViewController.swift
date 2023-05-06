@@ -7,8 +7,12 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class ItemTableViewController: UITableViewController {
+    
+    @IBOutlet weak var mic: UIButton!
+    @IBOutlet weak var micButton: UIBarButtonItem!
     
     var itemArray = [Item]()
     var selectedCategory: Category? {
@@ -17,17 +21,35 @@ class ItemTableViewController: UITableViewController {
         }
     }
     
+    var recordingSession: AVAudioSession!
+    var audioRecorder: AVAudioRecorder!
+    var numberOfRecords: Int = 0
+    var audioPlayer: AVAudioPlayer!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        //Setting up session
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        if let number: Int = UserDefaults.standard.object(forKey: "myNumer") as? Int {
+            numberOfRecords = number
+        }
+        
+        AVAudioSession.sharedInstance().requestRecordPermission { hasPermission in
+            if hasPermission {
+                print("ACCEPTED")
+            }
+        }
     }
     // MARK : - TableView Datasource Method
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         itemArray.count
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,11 +59,6 @@ class ItemTableViewController: UITableViewController {
         
         cell.accessoryType = itemArray[indexPath.row].done ? .checkmark : .none
         
-//        if itemArray[indexPath.row].done == true {
-//            cell.accessoryType = .checkmark
-//        } else {
-//            cell.accessoryType = .none
-//        }
         
         return cell
     }
@@ -50,16 +67,15 @@ class ItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        let path = getDirectory().appendingPathComponent("\(indexPath.row + 1).m4a")
         itemArray[indexPath.row].done.toggle()
         saveItems()
-        
-//        if itemArray[indexPath.row].done == false {
-//            itemArray[indexPath.row].done = true
-//        } else {
-//            itemArray[indexPath.row].done = false
-//        }
-        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: path)
+            audioPlayer.play()
+        } catch {
+            
+        }
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -84,6 +100,7 @@ class ItemTableViewController: UITableViewController {
             
             self.saveItems()
         }
+        
         
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new Item"
@@ -128,5 +145,87 @@ class ItemTableViewController: UITableViewController {
         }
         tableView.reloadData()
     }
+    
+    // MARK: - Func that gets path to directory
+    func getDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = paths[0]
+        return documentDirectory
+    }
+    
+    // MARK: - Func that displays an alert
+    func displayAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "dismiss", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+
+    // MARK: - Recording Button
+    @IBAction func recordButtonPressed(_ sender: Any) {
+        var textField = UITextField()
+        
+        
+        
+        //Checkig we have an active recorder
+        if audioRecorder == nil {
+            numberOfRecords += 1
+            let filename = getDirectory().appendingPathComponent("\(numberOfRecords).m4a")
+            
+            let settings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC), AVSampleRateKey: 1200, AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+            
+            
+            //Start audio recording
+
+            do {
+                
+                audioRecorder = try AVAudioRecorder(url: filename, settings: settings)
+                
+                audioRecorder.delegate = self
+                audioRecorder.record()
+                micButton.image = UIImage(named: "microfill")
+            } catch {
+                displayAlert(title: "Ups!", message: "Something went wrong!")
+            }
+        }
+        else {
+            //Stopping audio recording
+            audioRecorder.stop()
+            audioRecorder = nil
+            let alert = UIAlertController(title: "Add New Voice Record", message: "New Voice Record", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Add Voice Record", style: .default) { (action) in
+                
+                
+                let newItem = Item(context: self.context)
+                newItem.titel = textField.text!
+                newItem.done = false
+                newItem.parentCategory = self.selectedCategory
+                self.itemArray.append(newItem)
+                
+                self.saveItems()
+            }
+            
+            
+            alert.addTextField { (alertTextField) in
+                alertTextField.placeholder = "Create new Record"
+                textField = alertTextField
+            }
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
+//            UserDefaults.standard.set(numberOfRecords, forKey: "myNumber")
+            
+            micButton.image = UIImage(named: "micro")
+            
+        }
+    }
+    
+    
+}
+
+
+extension ItemTableViewController: AVAudioRecorderDelegate {
     
 }

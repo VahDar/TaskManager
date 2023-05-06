@@ -22,24 +22,41 @@ class AlertView: UIView {
     @IBOutlet weak var deleteButton: AlertButton!
     @IBOutlet weak var saveButton: AlertButton!
     
+    @IBOutlet weak var textField: UITextField!
     var delegate: AlertDelegate?
     
-    private var categoryCell: CategoryCollectionViewCell?
+    var categoryCell: CategoryCollectionViewCell!
     
+    var data: Category!
+    
+    func configureCell(with categoryCell: CategoryCollectionViewCell) {
+        self.categoryCell = categoryCell
+    }
     func configure() {
         datePicker.datePickerMode = .dateAndTime
         let localeID = Locale.preferredLanguages.first
         datePicker.locale = Locale(identifier: localeID!)
+        datePicker.addTarget(self, action: #selector(doneAction), for: .valueChanged)
+    }
+    @objc func doneAction() {
+        getDateFromPicker()
+//        datePicker.endEditing(true)
     }
     
     func getDateFromPicker() {
+       
         let dayFormatter = DateFormatter()
         dayFormatter.dateFormat = "dd"
         let dayAndMonthFormatter = DateFormatter()
-        dayAndMonthFormatter.dateFormat = "E MMM"
+        dayAndMonthFormatter.dateFormat = "MMM"
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
-        categoryCell!.setTexField(dayField: dayFormatter.string(from: datePicker.date), dayAndMonthField: dayAndMonthFormatter.string(from: datePicker.date), timeField: timeFormatter.string(from: datePicker.date))
+//        DispatchQueue.main.async {
+//            self.categoryCell.setTexField(dayField: dayFormatter.string(from: self.datePicker.date), dayAndMonthField: dayAndMonthFormatter.string(from: self.datePicker.date), timeField: timeFormatter.string(from: self.datePicker.date))
+//        }
+        self.data.dayField = dayFormatter.string(from: self.datePicker.date)
+        self.data.dayAndMonthFiled = dayAndMonthFormatter.string(from: self.datePicker.date)
+        self.data.timeField = timeFormatter.string(from: self.datePicker.date)
     }
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
@@ -47,10 +64,8 @@ class AlertView: UIView {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        getDateFromPicker()
+        
         delegate?.saveButtonPressed()
     }
-    
-    
     
 }
