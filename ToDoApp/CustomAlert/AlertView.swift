@@ -47,15 +47,15 @@ class AlertView: UIView {
        
         let dayFormatter = DateFormatter()
         dayFormatter.dateFormat = "dd"
-        let dayAndMonthFormatter = DateFormatter()
-        dayAndMonthFormatter.dateFormat = "MMM"
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "MMM"
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
 //        DispatchQueue.main.async {
 //            self.categoryCell.setTexField(dayField: dayFormatter.string(from: self.datePicker.date), dayAndMonthField: dayAndMonthFormatter.string(from: self.datePicker.date), timeField: timeFormatter.string(from: self.datePicker.date))
 //        }
         self.data.dayField = dayFormatter.string(from: self.datePicker.date)
-        self.data.dayAndMonthFiled = dayAndMonthFormatter.string(from: self.datePicker.date)
+        self.data.monthField = monthFormatter.string(from: self.datePicker.date)
         self.data.timeField = timeFormatter.string(from: self.datePicker.date)
     }
     

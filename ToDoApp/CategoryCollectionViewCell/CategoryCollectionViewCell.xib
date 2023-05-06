@@ -27,40 +27,44 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar2" translatesAutoresizingMaskIntoConstraints="NO" id="4Ql-AY-VXH">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTg-J4-ulP">
-                                        <rect key="frame" x="6" y="23" width="47" height="36"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKz-8l-oIL">
+                                        <rect key="frame" x="64" y="40" width="46" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ar-cY-QLi">
-                                        <rect key="frame" x="15" y="121" width="141" height="20.333333333333329"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMJ-rA-mhZ">
-                                        <rect key="frame" x="54" y="21" width="87" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKz-8l-oIL">
-                                        <rect key="frame" x="54" y="39" width="46" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMJ-rA-mhZ">
+                                        <rect key="frame" x="44" y="12" width="87" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTg-J4-ulP">
+                                        <rect key="frame" x="9" y="20" width="47" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Iqg-ek-SHR">
+                                        <rect key="frame" x="8" y="62.666666666666664" width="159" height="104.33333333333334"/>
+                                        <string key="text">LabelLabelLabelLabelLaLabelLabelLabelLabelLaLabelLabelLabelLabelLaLabelLabelLabelLabelLaLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="4Ql-AY-VXH" secondAttribute="bottom" id="BJF-NC-7yP"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iqg-ek-SHR" secondAttribute="trailing" constant="8" id="GIE-WX-MTg"/>
                                     <constraint firstItem="4Ql-AY-VXH" firstAttribute="top" secondItem="MwD-Ev-kUK" secondAttribute="top" id="H84-Hd-xbT"/>
                                     <constraint firstAttribute="trailing" secondItem="4Ql-AY-VXH" secondAttribute="trailing" id="IDc-Fj-vuB"/>
                                     <constraint firstItem="4Ql-AY-VXH" firstAttribute="leading" secondItem="MwD-Ev-kUK" secondAttribute="leading" id="iQ2-f6-AtQ"/>
+                                    <constraint firstItem="Iqg-ek-SHR" firstAttribute="leading" secondItem="MwD-Ev-kUK" secondAttribute="leading" constant="8" id="oRS-9E-N5W"/>
+                                    <constraint firstAttribute="bottom" secondItem="Iqg-ek-SHR" secondAttribute="bottom" constant="8" id="tgU-ow-0v6"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -85,7 +89,7 @@
                 <outlet property="dayField" destination="QTg-J4-ulP" id="fa3-pQ-p2r"/>
                 <outlet property="imageCheckMark" destination="4Ql-AY-VXH" id="bjH-fH-Wfv"/>
                 <outlet property="monthField" destination="SMJ-rA-mhZ" id="HZB-K3-sMi"/>
-                <outlet property="nameLael" destination="3Ar-cY-QLi" id="4LE-8c-vBD"/>
+                <outlet property="nameLael" destination="Iqg-ek-SHR" id="KbP-TI-8n7"/>
                 <outlet property="timeField" destination="EKz-8l-oIL" id="fFP-6G-rlH"/>
             </connections>
             <point key="canvasLocation" x="240.45801526717557" y="65.845070422535215"/>

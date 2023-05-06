@@ -53,7 +53,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             self.imageCheckMark.image = UIImage(named: "Calendar2")
         }
         self.dayField.text = category.dayField
-        self.monthField.text = category.dayAndMonthFiled
+        self.monthField.text = category.monthField
         self.timeField.text = category.timeField
     }
     private func setupGestureLongRecognizer() {
