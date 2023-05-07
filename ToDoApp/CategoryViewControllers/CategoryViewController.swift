@@ -10,6 +10,7 @@ import CoreData
 
 class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var button: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -41,11 +42,8 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         setupGestureLongRecognizer()
         setupTapsGesture()
         setupVisualEffect()
-//        let alertView = AlertView()
-//        let categoryCell = CategoryCollectionViewCell()
-//        alertView.configureCell(with: categoryCell)
+        button.image = UIImage(named: "clipart")
     }
-    
     
     
     // MARK: - setup UIVisualEffect
@@ -234,7 +232,6 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         cell.category = categoryArray[indexPath.row]
         cell.congigure()
-        
         
         return cell
     }

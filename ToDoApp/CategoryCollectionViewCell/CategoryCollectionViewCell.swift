@@ -14,11 +14,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageCheckMark: UIImageView!
     @IBOutlet weak var dayField: UITextField!
     @IBOutlet weak var monthField: UITextField!
+    @IBOutlet weak var viewCell: UIView!
     @IBOutlet weak var timeField: UITextField!
    
     var category: Category!
     
-    
+    var alertView: AlertView!
     static let indetifier = "CategoryCollectionViewCell"
     
     static func nib() -> UINib {
@@ -28,7 +29,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 //        setupGestureLongRecognizer()
-        
         // Initialization code
     }
     
@@ -45,12 +45,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         dayField.borderStyle = .none
         monthField.borderStyle = .none
         timeField.borderStyle = .none
-        
+        viewCell.layer.cornerRadius = 25
+        layer.shadowRadius = 9
+        layer.shadowOpacity = 0.3
+        layer.shadowOffset = CGSize(width: 5, height: 8)
+        clipsToBounds = false
         switch category.isSelected {
         case true:
             self.imageCheckMark.image = UIImage(named: "done")
         case false:
-            self.imageCheckMark.image = UIImage(named: "Calendar2")
+            self.imageCheckMark.image = .none
         }
         self.dayField.text = category.dayField
         self.monthField.text = category.monthField

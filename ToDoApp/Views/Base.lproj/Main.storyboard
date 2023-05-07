@@ -34,28 +34,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tHe-4I-IER">
-                                <rect key="frame" x="30" y="150" width="333" height="4"/>
-                            </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoP-dv-AuN">
-                                <rect key="frame" x="151" y="108" width="90" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="9oM-fo-DPC"/>
-                                    <constraint firstAttribute="width" constant="90" id="YKF-Lh-1mS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" id="iEL-PR-81c">
-                                <rect key="frame" x="0.0" y="302" width="393" height="516"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.89005774260000003" green="0.92648398880000005" blue="0.8705809712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fo8-bt-3mN">
-                                    <size key="itemSize" width="175" height="175"/>
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iEL-PR-81c">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" red="0.14793103930000001" green="0.54696834090000002" blue="0.54832565779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="0.0" id="Fo8-bt-3mN">
+                                    <size key="itemSize" width="190" height="190"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="11" maxX="15" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                                 <connections>
@@ -65,18 +51,12 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yxs-xp-W40"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.27385056019999998" green="0.5370034575" blue="0.54510253669999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="yxs-xp-W40" firstAttribute="trailing" secondItem="iEL-PR-81c" secondAttribute="trailing" id="6Ia-kf-0W4"/>
-                            <constraint firstItem="yxs-xp-W40" firstAttribute="trailing" secondItem="CoP-dv-AuN" secondAttribute="trailing" constant="152" id="88c-Su-xfD"/>
-                            <constraint firstItem="yxs-xp-W40" firstAttribute="bottom" secondItem="iEL-PR-81c" secondAttribute="bottom" id="FtH-0I-H8s"/>
-                            <constraint firstItem="iEL-PR-81c" firstAttribute="top" secondItem="tHe-4I-IER" secondAttribute="bottom" constant="148" id="InR-rS-xDK"/>
-                            <constraint firstItem="yxs-xp-W40" firstAttribute="trailing" secondItem="tHe-4I-IER" secondAttribute="trailing" constant="30" id="Our-y7-XBY"/>
-                            <constraint firstItem="tHe-4I-IER" firstAttribute="top" secondItem="CoP-dv-AuN" secondAttribute="bottom" constant="12" id="a85-cj-RUX"/>
-                            <constraint firstItem="iEL-PR-81c" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" id="lGO-ZH-0Eq"/>
-                            <constraint firstItem="CoP-dv-AuN" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" constant="151" id="m1c-zV-1IL"/>
-                            <constraint firstItem="CoP-dv-AuN" firstAttribute="top" secondItem="yxs-xp-W40" secondAttribute="top" constant="5" id="mma-Nd-aNC"/>
-                            <constraint firstItem="tHe-4I-IER" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" constant="30" id="wCz-5R-wKq"/>
+                            <constraint firstItem="iEL-PR-81c" firstAttribute="leading" secondItem="yxs-xp-W40" secondAttribute="leading" id="MRG-0a-7JI"/>
+                            <constraint firstItem="iEL-PR-81c" firstAttribute="trailing" secondItem="yxs-xp-W40" secondAttribute="trailing" id="MuH-Ku-Wc0"/>
+                            <constraint firstAttribute="bottom" secondItem="iEL-PR-81c" secondAttribute="bottom" id="Xa6-Yc-Xoj"/>
+                            <constraint firstItem="iEL-PR-81c" firstAttribute="top" secondItem="yxs-xp-W40" secondAttribute="top" id="gI4-Ma-3cg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Category" id="SoS-WH-4p3">
@@ -87,6 +67,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="button" destination="6vq-TL-ZET" id="DWK-j6-MKR"/>
                         <outlet property="collectionView" destination="iEL-PR-81c" id="yal-Ye-yOH"/>
                     </connections>
                 </viewController>

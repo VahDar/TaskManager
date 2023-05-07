@@ -89,26 +89,17 @@
                         </button>
                     </subviews>
                 </stackView>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SS8-7e-Yli">
-                    <rect key="frame" x="109" y="87" width="97" height="34.333333333333343"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
                 <constraint firstItem="kNX-3m-ATe" firstAttribute="bottom" secondItem="ug3-Ty-kaH" secondAttribute="bottom" constant="-10" id="4lc-s5-QKQ"/>
                 <constraint firstItem="ug3-Ty-kaH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6a1-tJ-Tcw"/>
-                <constraint firstItem="SS8-7e-Yli" firstAttribute="leading" secondItem="Rdj-nE-hUF" secondAttribute="trailing" constant="16" id="7c6-X7-zxq"/>
                 <constraint firstItem="kNX-3m-ATe" firstAttribute="top" secondItem="4K4-vM-4md" secondAttribute="bottom" constant="24.670000000000002" id="FmG-c5-HH1"/>
-                <constraint firstItem="SS8-7e-Yli" firstAttribute="top" secondItem="4ai-jI-T12" secondAttribute="bottom" constant="7.3300000000000001" id="Koj-Hg-eZO"/>
                 <constraint firstItem="Rdj-nE-hUF" firstAttribute="leading" secondItem="ug3-Ty-kaH" secondAttribute="leading" constant="20" id="LpD-f9-8UP"/>
                 <constraint firstItem="4ai-jI-T12" firstAttribute="trailing" secondItem="ug3-Ty-kaH" secondAttribute="trailing" constant="-15" id="MKk-SG-qCc"/>
                 <constraint firstItem="4K4-vM-4md" firstAttribute="leading" secondItem="ug3-Ty-kaH" secondAttribute="leading" constant="20" id="Ox6-ud-ha9"/>
                 <constraint firstItem="4K4-vM-4md" firstAttribute="top" secondItem="T3z-HH-6nV" secondAttribute="bottom" constant="8" id="Q8t-Q2-262"/>
                 <constraint firstItem="ug3-Ty-kaH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TfG-T6-G8I"/>
-                <constraint firstItem="T3z-HH-6nV" firstAttribute="leading" secondItem="SS8-7e-Yli" secondAttribute="trailing" constant="59" id="TnH-KZ-8LV"/>
-                <constraint firstItem="4K4-vM-4md" firstAttribute="top" secondItem="SS8-7e-Yli" secondAttribute="bottom" constant="10.33" id="WSI-oR-nIt"/>
                 <constraint firstItem="4K4-vM-4md" firstAttribute="top" secondItem="Rdj-nE-hUF" secondAttribute="bottom" constant="16" id="Wff-Bq-kYG"/>
                 <constraint firstItem="kNX-3m-ATe" firstAttribute="trailing" secondItem="ug3-Ty-kaH" secondAttribute="trailing" constant="-15" id="XNq-Bu-Aa6"/>
                 <constraint firstItem="4ai-jI-T12" firstAttribute="top" secondItem="ug3-Ty-kaH" secondAttribute="top" constant="45" id="bF5-2m-unK"/>
@@ -128,7 +119,6 @@
                 <outlet property="explanationLabel" destination="4K4-vM-4md" id="gVf-s6-POk"/>
                 <outlet property="saveButton" destination="Ft7-1f-5hy" id="Xr1-Ec-t6U"/>
                 <outlet property="switchButton" destination="T3z-HH-6nV" id="h69-j1-KkT"/>
-                <outlet property="textField" destination="SS8-7e-Yli" id="Jm2-fv-fvu"/>
             </connections>
             <point key="canvasLocation" x="-231.29770992366412" y="-390.49295774647891"/>
         </view>
