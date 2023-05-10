@@ -157,9 +157,24 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if let indexPath {
-            alertView.data = categoryArray[indexPath.row]
-            setAlert()
-            animateIn()
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { delete in
+                let deleteCategory = self.categoryArray[indexPath.row]
+                self.context.delete(deleteCategory)
+                self.categoryArray.remove(at: indexPath.row)
+                self.collectionView.deleteItems(at: [indexPath])
+                self.saveCategories()
+            }
+            
+            let edit = UIAlertAction(title: "Edit", style: .default) { edit in
+                self.alertView.data = self.categoryArray[indexPath.row]
+                self.setAlert()
+                self.animateIn()
+            }
+            alert.addAction(delete)
+            alert.addAction(edit)
+            present(alert, animated: true, completion: nil)
+
             collectionView.reloadData()
             
             print("long press")
