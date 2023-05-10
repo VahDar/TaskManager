@@ -10,9 +10,13 @@ import CoreData
 
 class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var button: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var labelTaks: UILabel!
+    @IBOutlet weak var labelManager: UILabel!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var categoryArray = [Category]()
@@ -37,15 +41,25 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.indetifier)
+        
+        view.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.layer.borderWidth = 1
         collectionView.dataSource = self
         loadCategories()
         setupGestureLongRecognizer()
         setupTapsGesture()
         setupVisualEffect()
-        
-        button.image = UIImage(named: "clipart")
+        dateSetup()
     }
     
+    // MARK: - Setup Date
+    func dateSetup() {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd"
+        let dateString = dateFormatter.string(from: currentDate)
+        dateLabel.text = dateString
+    }
     
     // MARK: - setup UIVisualEffect
     
@@ -106,7 +120,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     
  // MARK: - Add button setup
     
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func addButtonPressed(_ sender: UIButton) {
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add new Category", message: "", preferredStyle: .alert)
@@ -133,6 +147,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         present(alert, animated: true, completion: nil)
         
     }
+    
     
     // MARK: - Set AlertView
     

@@ -32,7 +32,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Iqg-ek-SHR">
                                         <rect key="frame" x="10" y="8" width="170" height="86"/>
                                         <string key="text">LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL LabelL</string>
-                                        <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -53,7 +53,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.69665950539999999" green="0.9517976642" blue="0.8750553727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92629867789999998" green="0.85553199049999995" blue="0.28992465140000001" alpha="0.87819131004889284" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Iqg-ek-SHR" firstAttribute="leading" secondItem="MwD-Ev-kUK" secondAttribute="leading" constant="10" id="1Uc-sy-ST9"/>
                                     <constraint firstAttribute="leading" secondItem="ZUY-db-NnM" secondAttribute="trailing" constant="-85" id="6co-zV-qcM"/>

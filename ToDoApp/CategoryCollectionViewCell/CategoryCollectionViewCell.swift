@@ -46,8 +46,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         monthField.borderStyle = .none
         timeField.borderStyle = .none
         viewCell.layer.cornerRadius = 25
+        
+        layer.cornerRadius = 25
+        layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        layer.borderWidth = 1
+        layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         layer.shadowRadius = 9
-        layer.shadowOpacity = 0.3
+        layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 5, height: 8)
         clipsToBounds = false
         switch category.isSelected {
