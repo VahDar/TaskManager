@@ -7,16 +7,50 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    
 
-
-
+    let notificationCenter = UNUserNotificationCenter.current()
+    let alertView = AlertView()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            
+            guard granted else { return }
+            
+            
+        }
+       
+//        alertView.scheduleLocalNotification()
         return true
     }
+    
+    
+//    func sendNotification() {
+//        // create content
+//        let content = UNMutableNotificationContent()
+//        content.title = "Complete your task"
+//        content.body = "body"
+//        content.sound = UNNotificationSound.default
+//
+//        // create trigger
+//        let dateInfo = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self.alertView.datePicker.date)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
+//
+//        // make request
+//        let request = UNNotificationRequest(identifier: "notification", content: content, trigger: trigger)
+//        notificationCenter.add(request) { error in
+//            if error != nil {
+//                print(error?.localizedDescription)
+//            }
+//        }
+//
+//    }
 
     // MARK: UISceneSession Lifecycle
 

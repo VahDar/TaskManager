@@ -42,6 +42,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         setupGestureLongRecognizer()
         setupTapsGesture()
         setupVisualEffect()
+        
         button.image = UIImage(named: "clipart")
     }
     
@@ -256,6 +257,15 @@ extension CategoryViewController: UICollectionViewDataSource {
 
 // MARK: - AlertView Delegate
 extension CategoryViewController: AlertDelegate {
+    
+    func switchButton(_ sender: UISwitch) {
+        if sender.isOn {
+            alertView.scheduleLocalNotification()
+        } else {
+
+        }
+    }
+    
     
     func deleteButtonPressed() {
         animateOut()

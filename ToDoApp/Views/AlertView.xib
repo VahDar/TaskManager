@@ -50,8 +50,11 @@
                         <!--2037-12-31 11:00:00 +0000-->
                     </date>
                 </datePicker>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T3z-HH-6nV">
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="T3z-HH-6nV">
                     <rect key="frame" x="265" y="92.333333333333329" width="51" height="31"/>
+                    <connections>
+                        <action selector="switchButton:" destination="iN0-l3-epB" eventType="valueChanged" id="mCS-LG-5rS"/>
+                    </connections>
                 </switch>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="kNX-3m-ATe">
                     <rect key="frame" x="43" y="170.66666666666666" width="271" height="46"/>
