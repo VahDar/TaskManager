@@ -42,7 +42,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         collectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.indetifier)
         
-        view.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.layer.borderColor = #colorLiteral(red: 0.990247786, green: 0.8528698683, blue: 0.008418501355, alpha: 1)
         view.layer.borderWidth = 1
         collectionView.dataSource = self
         loadCategories()
@@ -56,7 +56,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     func dateSetup() {
         let currentDate = Date()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd"
+        dateFormatter.dateFormat = "dd MMM"
         let dateString = dateFormatter.string(from: currentDate)
         dateLabel.text = dateString
     }

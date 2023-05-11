@@ -57,7 +57,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         clipsToBounds = false
         switch category.isSelected {
         case true:
-            self.imageCheckMark.image = UIImage(named: "done")
+            self.imageCheckMark.image = UIImage(named: "done1")
         case false:
             self.imageCheckMark.image = .none
         }

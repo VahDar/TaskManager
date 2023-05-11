@@ -89,6 +89,7 @@ class AlertView: UIView {
     
     @IBAction func switchButton(_ sender: UISwitch) {
         delegate?.switchButton(sender)
+       
     }
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
