@@ -1,15 +1,12 @@
-//
+
 //  CategoryViewController.swift
 //  ToDoApp
 //
 //  Created by Vakhtang on 30.04.2023.
-//
-
 import UIKit
 import CoreData
 
 class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
-
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var button: UIBarButtonItem!
@@ -84,7 +81,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func animateOut() {
-    
+        
         UIView.animate(withDuration: 0.4, animations: {
             self.visualEffectView.alpha = 0
             self.alertView.alpha = 0
@@ -104,7 +101,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         } catch {
             print("Error saving category \(error)")
         }
-       
+        
         collectionView.reloadData()
     }
     
@@ -117,7 +114,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         collectionView.reloadData()
     }
     
- // MARK: - Add button setup
+    // MARK: - Add button setup
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
         var textField = UITextField()
@@ -153,7 +150,6 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    
     // MARK: - Set AlertView
     
     func setAlert() {
@@ -168,12 +164,11 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         gesturLongPress.minimumPressDuration = 0.5
         gesturLongPress.delaysTouchesBegan = true
         gesturLongPress.delegate = self
-
         self.collectionView.addGestureRecognizer(gesturLongPress)
     }
-
+    
     @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
-
+        
         guard gestureRecognizer.state != .began else { return }
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
@@ -187,7 +182,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.collectionView.deleteItems(at: [indexPath])
                 self.saveCategories()
             }
-
+            
             let edit = UIAlertAction(title: "Edit", style: .default) { edit in
                 self.alertView.data = self.categoryArray[indexPath.row]
                 self.alertView.switchButton.isOn = false
@@ -197,51 +192,45 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
             alert.addAction(delete)
             alert.addAction(edit)
             present(alert, animated: true, completion: nil)
-
             collectionView.reloadData()
-
-            print("long press")
         } else {
             print("Could not work long press")
         }
     }
-
+    
     // MARK: - Setup Tap and Double Gesture
     func setupTapsGesture() {
-
+        
         // Single Tap
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleOneTap))
         singleTap.numberOfTapsRequired = 1
         collectionView.addGestureRecognizer(singleTap)
-
+        
         // Double Tap
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
         doubleTap.numberOfTapsRequired = 2
         collectionView.addGestureRecognizer(doubleTap)
-
+        
         singleTap.require(toFail: doubleTap)
         singleTap.delaysTouchesBegan = true
         doubleTap.delaysTouchesBegan = true
-
+        
     }
-
+    
     @objc func handleOneTap(gestureRecognizer: UITapGestureRecognizer) {
         guard gestureRecognizer.state != .began else { return }
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if indexPath != nil {
-            print("one tap")
-            let storyBord = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard?.instantiateViewController(identifier: "ItemVC") as! ItemTableViewController
             self.navigationController?.pushViewController(vc, animated: true)
             vc.selectedCategory = categoryArray[indexPath!.row]
-            
             collectionView.reloadData()
         } else {
             print("Could not work one tap")
         }
     }
-
+    
     @objc func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
         guard gestureRecognizer.state != .began else { return }
         let point = gestureRecognizer.location(in: self.collectionView)
@@ -249,8 +238,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         if indexPath != nil {
             categoryArray[indexPath!.row].isSelected.toggle()
             collectionView.reloadData()
-            print("double tap")
-  
+            
         } else {
             print("Could not work double tap")
         }
@@ -274,8 +262,6 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 
@@ -286,15 +272,14 @@ extension CategoryViewController: AlertDelegate {
         if sender.isOn {
             alertView.scheduleLocalNotification()
         } else {
-
-        }
+            
     }
-    
+}
     
     func deleteButtonPressed() {
         animateOut()
         
-    }
+}
     
     func saveButtonPressed() {
         alertView.doneAction()
@@ -302,7 +287,5 @@ extension CategoryViewController: AlertDelegate {
         saveCategories()
         collectionView.reloadData()
     }
-    
-    
 }
 
