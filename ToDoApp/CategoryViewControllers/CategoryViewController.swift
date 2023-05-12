@@ -41,7 +41,6 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: CategoryCollectionViewCell.indetifier)
-        
         view.layer.borderColor = #colorLiteral(red: 0.990247786, green: 0.8528698683, blue: 0.008418501355, alpha: 1)
         view.layer.borderWidth = 1
         collectionView.dataSource = self
@@ -128,13 +127,19 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let action = UIAlertAction(title: "Add category", style: .default) { (action) in
             
             let newCategory = Category(context: self.context)
-            newCategory.name = textField.text!
-            newCategory.isSelected = false
-            self.categoryArray.append(newCategory)
-            
-            self.saveCategories()
+            if textField.text!.isEmpty {
+                textField.text! = "New Category"
+                newCategory.name = textField.text!
+                newCategory.isSelected = false
+                self.categoryArray.append(newCategory)
+                self.saveCategories()
+            } else {
+                newCategory.name = textField.text!
+                newCategory.isSelected = false
+                self.categoryArray.append(newCategory)
+                self.saveCategories()
+            }
         }
-        
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in}
         
         alert.addTextField{ (alertTextfield) in
@@ -173,7 +178,8 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if let indexPath {
-            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            
+            let alert = UIAlertController(title: "options", message: "", preferredStyle: .alert)
             let delete = UIAlertAction(title: "Delete", style: .destructive) { delete in
                 let deleteCategory = self.categoryArray[indexPath.row]
                 self.context.delete(deleteCategory)
@@ -181,9 +187,10 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.collectionView.deleteItems(at: [indexPath])
                 self.saveCategories()
             }
-            
+
             let edit = UIAlertAction(title: "Edit", style: .default) { edit in
                 self.alertView.data = self.categoryArray[indexPath.row]
+                self.alertView.switchButton.isOn = false
                 self.setAlert()
                 self.animateIn()
             }
@@ -192,7 +199,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
             present(alert, animated: true, completion: nil)
 
             collectionView.reloadData()
-            
+
             print("long press")
         } else {
             print("Could not work long press")
@@ -224,7 +231,8 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if indexPath != nil {
             print("one tap")
-            let vc = storyboard?.instantiateViewController(withIdentifier: "ItemVC") as! ItemTableViewController
+            let storyBord = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard?.instantiateViewController(identifier: "ItemVC") as! ItemTableViewController
             self.navigationController?.pushViewController(vc, animated: true)
             vc.selectedCategory = categoryArray[indexPath!.row]
             
@@ -270,6 +278,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     
 }
 
+
 // MARK: - AlertView Delegate
 extension CategoryViewController: AlertDelegate {
     
@@ -288,10 +297,10 @@ extension CategoryViewController: AlertDelegate {
     }
     
     func saveButtonPressed() {
-        animateOut()
         alertView.doneAction()
-        collectionView.reloadData()
+        animateOut()
         saveCategories()
+        collectionView.reloadData()
     }
     
     

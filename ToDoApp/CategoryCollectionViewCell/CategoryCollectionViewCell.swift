@@ -28,8 +28,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        setupGestureLongRecognizer()
-        // Initialization code
+
     }
     
    

@@ -16,6 +16,8 @@
 		FCB7FEDF2A02E43D0034D214 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7FEDE2A02E43D0034D214 /* AlertView.swift */; };
 		FCB7FEE12A02E65C0034D214 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7FEE02A02E65C0034D214 /* Nib.swift */; };
 		FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */; };
+		FCEAA41C2A0E627A00735747 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAA41B2A0E627A00735747 /* TutorialViewController.swift */; };
+		FCEAA41F2A0E65A300735747 /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAA41E2A0E65A300735747 /* TutorialModel.swift */; };
 		FCF4FA8029FAA56600B61F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA7F29FAA56600B61F20 /* AppDelegate.swift */; };
 		FCF4FA8229FAA56600B61F20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF4FA8129FAA56600B61F20 /* SceneDelegate.swift */; };
 		FCF4FA8729FAA56600B61F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF4FA8529FAA56600B61F20 /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 		FCB7FEDE2A02E43D0034D214 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		FCB7FEE02A02E65C0034D214 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		FCEAA41B2A0E627A00735747 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		FCEAA41E2A0E65A300735747 /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
 		FCF4FA7C29FAA56600B61F20 /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF4FA7F29FAA56600B61F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF4FA8129FAA56600B61F20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,22 @@
 			path = ItemViewController;
 			sourceTree = "<group>";
 		};
+		FCEAA41A2A0E624000735747 /* TutorialScreenroup */ = {
+			isa = PBXGroup;
+			children = (
+				FCEAA41B2A0E627A00735747 /* TutorialViewController.swift */,
+			);
+			path = TutorialScreenroup;
+			sourceTree = "<group>";
+		};
+		FCEAA41D2A0E657B00735747 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCEAA41E2A0E65A300735747 /* TutorialModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FCF4FA7329FAA56600B61F20 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +119,8 @@
 		FCF4FA7E29FAA56600B61F20 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCEAA41D2A0E657B00735747 /* Model */,
+				FCEAA41A2A0E624000735747 /* TutorialScreenroup */,
 				FCB1D71C2A02DA1E00ACC3DF /* CustomAlert */,
 				FCC42B7C2A0017A00052BCEC /* ItemViewController */,
 				FC06923429FEDC6A00F3211B /* CategoryCollectionViewCell */,
@@ -222,6 +244,8 @@
 			files = (
 				FC06922729FEA56D00F3211B /* CategoryViewController.swift in Sources */,
 				FCF4FA8029FAA56600B61F20 /* AppDelegate.swift in Sources */,
+				FCEAA41C2A0E627A00735747 /* TutorialViewController.swift in Sources */,
+				FCEAA41F2A0E65A300735747 /* TutorialModel.swift in Sources */,
 				FCB1D71E2A02DA4300ACC3DF /* AlertButton.swift in Sources */,
 				FCF4FA8229FAA56600B61F20 /* SceneDelegate.swift in Sources */,
 				FC06922E29FEB20B00F3211B /* CategoryCollectionViewCell.swift in Sources */,

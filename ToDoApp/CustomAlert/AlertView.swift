@@ -40,13 +40,6 @@ class AlertView: UIView {
         datePicker.addTarget(self, action: #selector(doneAction), for: .valueChanged)
     }
     @objc func doneAction() {
-        getDateFromPicker()
-//        datePicker.endEditing(true)
-    }
-    
-    
-    func getDateFromPicker() {
-       
         let dayFormatter = DateFormatter()
         dayFormatter.dateFormat = "dd"
         let monthFormatter = DateFormatter()
@@ -58,6 +51,7 @@ class AlertView: UIView {
         self.data.monthField = monthFormatter.string(from: self.datePicker.date)
         self.data.timeField = timeFormatter.string(from: self.datePicker.date)
     }
+    
     
     func scheduleLocalNotification(){
       //checking the notification setting whether it's authorized or not to send a request.
