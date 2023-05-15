@@ -22,13 +22,17 @@ class TutorialViewController: UIViewController {
             }
         }
     }
-    var slides: [TutorialModel] = [TutorialModel(image: UIImage(named: "micro"), title: "Taps", description: "One tap for somwthing "),
-                TutorialModel(image: UIImage(named: "micro"), title: "Second", description: "Long tap for somwthing "),
-                TutorialModel(image: UIImage(named: "micro"), title: "third", description: "double tap for somwthing ")
+    var slides: [TutorialModel] = [TutorialModel(image: UIImage(named: "plus"), title: "", description: "Add your task to manage your daily schedule"),
+                TutorialModel(image: UIImage(named: "tap"), title: "One tap", description: "one tap on your task to open a screen with to do list where you can add items for your task"),
+                TutorialModel(image: UIImage(named: "Doubletap"), title: "Double tap", description: "Double click to mark completed task"),
+                TutorialModel(image: UIImage(named: "holdtouch"), title: "Long press", description: "Long press the task to edit or delete in one"),
+                TutorialModel(image: UIImage(named: "notification"), title: "Notification", description: "Let us give you a notification of your task on time"),
+                TutorialModel(image: UIImage(named: "list"), title: "To do list", description: "One tap to mark completed, swipe to delete it.")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextButton.layer.cornerRadius = 15
         collectionView.dataSource = self
         collectionView.delegate = self
     }
