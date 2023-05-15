@@ -9,7 +9,7 @@ import UIKit
 
 struct TutorialModel {
     
-    let image: UIImage
+    let image: UIImage!
     let title: String
     let description: String
 }
