@@ -13,15 +13,13 @@ class TutorialViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let storageManager = StorageManager()
+    private let navigationManager = NavigationManager()
+    
     var currentPage = 0 {
         didSet {
             if currentPage == slides.count - 1 {
                 nextButton.setTitle("Get Started", for: .normal)
-                let mainAppViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoryViewController")
-                if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate, let window = sceneDelegate.window {
-                    window.rootViewController = mainAppViewController
-                    UIView.transition(with: window, duration: 0.5, animations: nil, completion: nil)
-                }
             } else {
                 nextButton.setTitle("Next", for: .normal)
             }
@@ -40,10 +38,16 @@ class TutorialViewController: UIViewController {
         nextButton.layer.cornerRadius = 15
         collectionView.dataSource = self
         collectionView.delegate = self
+        updateFlag()
+    }
+    
+    private func updateFlag() {
+        storageManager.setOnboardingSeen()
     }
   
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         if currentPage == slides.count - 1 {
+            navigationManager.show(screen: .mainApp, inController: self)
             print("last page")
         } else {
             currentPage += 1

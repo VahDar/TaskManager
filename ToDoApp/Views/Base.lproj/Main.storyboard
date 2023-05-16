@@ -136,10 +136,11 @@
         <!--Navigation Controller-->
         <scene sceneID="WAf-yM-OcT">
             <objects>
-                <navigationController id="FJX-DU-qpb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" id="FJX-DU-qpb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EAN-vk-Vjn">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.99024778599999996" green="0.8528698683" blue="0.008418501355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="1uX-m4-goa" kind="relationship" relationship="rootViewController" id="nlX-cy-A9s"/>
@@ -165,10 +166,10 @@
                                 <rect key="frame" x="0.0" y="164" width="430" height="768"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="0.0" id="Fo8-bt-3mN">
-                                    <size key="itemSize" width="190" height="190"/>
+                                    <size key="itemSize" width="180" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="15" minY="25" maxX="15" maxY="10"/>
+                                    <inset key="sectionInset" minX="11" minY="25" maxX="11" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                                 <connections>
@@ -235,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYm-rw-Rvu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852.43902439024384" y="-32.542372881355931"/>
+            <point key="canvasLocation" x="837" y="-21"/>
         </scene>
         <!--Item Table View Controller-->
         <scene sceneID="hVM-uH-hB1">
@@ -244,7 +245,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3Wj-VH-5wH">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="mWi-ce-DIf">
                                 <rect key="frame" x="0.0" y="50" width="430" height="43.666667938232422"/>
@@ -253,7 +255,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="430" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" red="0.98457759619999996" green="0.75175988670000005" blue="0.086879767479999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -265,7 +267,7 @@
                     <navigationItem key="navigationItem" id="esV-M6-h6M">
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7ax-QM-R4p">
-                            <color key="tintColor" systemColor="tintColor"/>
+                            <color key="tintColor" red="0.99024778599999996" green="0.8528698683" blue="0.008418501355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addBarButtonPressed:" destination="xbc-zv-L5r" id="3l6-WC-hpR"/>
                             </connections>
@@ -276,7 +278,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05a-JO-08B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646.5648854961833" y="-32.394366197183103"/>
+            <point key="canvasLocation" x="1640.9302325581396" y="-21.24463519313305"/>
         </scene>
     </scenes>
     <resources>
@@ -287,17 +289,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -9,10 +9,13 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
-    private let isOnboardingSeen = false
+    private var isOnboardingSeen: Bool!
+    private let navigationManager = NavigationManager()
+    private let storageManager = StorageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isOnboardingSeen = storageManager.isOnboardingSeen()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,32 +26,10 @@ class LoadingViewController: UIViewController {
     func showInitialScreen() {
         if isOnboardingSeen {
             // go straight to main app
-            showMainScreen()
+            navigationManager.show(screen: .mainApp, inController: self)
         } else {
            // show onboarding screen
-            showTutorialScreen()
-        }
-    }
-    
-    private func showTutorialScreen() {
-        let tutorialAppViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TutorialViewController")
-        if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate, let window = sceneDelegate.window {
-            window.rootViewController = tutorialAppViewController
-            UIView.transition(with: window,
-                              duration: 0.5,
-                              animations: nil,
-                              completion: nil)
-        }
-    }
-    
-    private func showMainScreen() {
-        let mainAppViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoryViewController")
-        if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate, let window = sceneDelegate.window {
-            window.rootViewController = mainAppViewController
-            UIView.transition(with: window,
-                              duration: 0.5,
-                              animations: nil,
-                              completion: nil)
+            navigationManager.show(screen: .onboarding, inController: self)
         }
     }
 }

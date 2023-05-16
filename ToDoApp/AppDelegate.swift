@@ -12,7 +12,7 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
+//    private let storageManager = StorageManager()
 
     let notificationCenter = UNUserNotificationCenter.current()
     let alertView = AlertView()
@@ -22,11 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             
             guard granted else { return }
-            
-            
         }
        
-//        alertView.scheduleLocalNotification()
+//        storageManager.resetOnboardingSeen()
         return true
     }
     

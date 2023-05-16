@@ -21,7 +21,11 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundView = UIImageView(image: UIImage(named: "backscreen"))
+        
     }
+    
+    
     // MARK : - TableView Datasource Method
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,6 +41,9 @@ class ItemTableViewController: UITableViewController {
         
         cell.accessoryType = itemArray[indexPath.row].done ? .checkmark : .none
         
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        cell.layer.cornerRadius = 15
         return cell
     }
     
@@ -60,6 +67,7 @@ class ItemTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete

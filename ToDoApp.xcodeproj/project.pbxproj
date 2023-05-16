@@ -17,6 +17,8 @@
 		FCB7FEDF2A02E43D0034D214 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7FEDE2A02E43D0034D214 /* AlertView.swift */; };
 		FCB7FEE12A02E65C0034D214 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7FEE02A02E65C0034D214 /* Nib.swift */; };
 		FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */; };
+		FCCC63252A13BBC90046E0BC /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC63242A13BBC90046E0BC /* NavigationManager.swift */; };
+		FCCC63272A13BE860046E0BC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC63262A13BE860046E0BC /* StorageManager.swift */; };
 		FCEAA41C2A0E627A00735747 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAA41B2A0E627A00735747 /* TutorialViewController.swift */; };
 		FCEAA41F2A0E65A300735747 /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAA41E2A0E65A300735747 /* TutorialModel.swift */; };
 		FCEAA4212A0EB35400735747 /* TutorialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEAA4202A0EB35400735747 /* TutorialCollectionViewCell.swift */; };
@@ -38,6 +40,8 @@
 		FCB7FEDE2A02E43D0034D214 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		FCB7FEE02A02E65C0034D214 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		FCC42B7D2A0017D30052BCEC /* ItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		FCCC63242A13BBC90046E0BC /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		FCCC63262A13BE860046E0BC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		FCEAA41B2A0E627A00735747 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		FCEAA41E2A0E65A300735747 /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
 		FCEAA4202A0EB35400735747 /* TutorialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 			path = ItemViewController;
 			sourceTree = "<group>";
 		};
+		FCCC63232A13BBB10046E0BC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FCCC63242A13BBC90046E0BC /* NavigationManager.swift */,
+				FCCC63262A13BE860046E0BC /* StorageManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		FCEAA41A2A0E624000735747 /* TutorialScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 		FCF4FA7E29FAA56600B61F20 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCCC63232A13BBB10046E0BC /* Service */,
 				FC7DFDFC2A13743B00A38A3A /* LoadingViewController */,
 				FCEAA41D2A0E657B00735747 /* Model */,
 				FCEAA41A2A0E624000735747 /* TutorialScreen */,
@@ -265,8 +279,10 @@
 				FCF4FA8229FAA56600B61F20 /* SceneDelegate.swift in Sources */,
 				FC06922E29FEB20B00F3211B /* CategoryCollectionViewCell.swift in Sources */,
 				FCB7FEDF2A02E43D0034D214 /* AlertView.swift in Sources */,
+				FCCC63252A13BBC90046E0BC /* NavigationManager.swift in Sources */,
 				FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */,
 				FCB7FEE12A02E65C0034D214 /* Nib.swift in Sources */,
+				FCCC63272A13BE860046E0BC /* StorageManager.swift in Sources */,
 				FC7DFDFE2A13745900A38A3A /* LoadingViewController.swift in Sources */,
 				FCF4FA8A29FAA56600B61F20 /* DataModel.xcdatamodeld in Sources */,
 			);

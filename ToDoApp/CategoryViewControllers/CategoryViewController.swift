@@ -222,9 +222,11 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if indexPath != nil {
+
             let vc = storyboard?.instantiateViewController(identifier: "ItemVC") as! ItemTableViewController
             self.navigationController?.pushViewController(vc, animated: true)
             vc.selectedCategory = categoryArray[indexPath!.row]
+            print("one tap")
             collectionView.reloadData()
         } else {
             print("Could not work one tap")
