@@ -17,6 +17,11 @@ class TutorialViewController: UIViewController {
         didSet {
             if currentPage == slides.count - 1 {
                 nextButton.setTitle("Get Started", for: .normal)
+                let mainAppViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoryViewController")
+                if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate, let window = sceneDelegate.window {
+                    window.rootViewController = mainAppViewController
+                    UIView.transition(with: window, duration: 0.5, animations: nil, completion: nil)
+                }
             } else {
                 nextButton.setTitle("Next", for: .normal)
             }

@@ -11,6 +11,7 @@
 		FC06922E29FEB20B00F3211B /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06922C29FEB20B00F3211B /* CategoryCollectionViewCell.swift */; };
 		FC06922F29FEB20B00F3211B /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC06922D29FEB20B00F3211B /* CategoryCollectionViewCell.xib */; };
 		FC3417B82A07CFD700148520 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3417B72A07CFD700148520 /* Assets.xcassets */; };
+		FC7DFDFE2A13745900A38A3A /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DFDFD2A13745900A38A3A /* LoadingViewController.swift */; };
 		FCB1D71E2A02DA4300ACC3DF /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB1D71D2A02DA4300ACC3DF /* AlertButton.swift */; };
 		FCB7FEDD2A02E2CC0034D214 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB7FEDC2A02E2CC0034D214 /* AlertView.xib */; };
 		FCB7FEDF2A02E43D0034D214 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB7FEDE2A02E43D0034D214 /* AlertView.swift */; };
@@ -31,6 +32,7 @@
 		FC06922C29FEB20B00F3211B /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC06922D29FEB20B00F3211B /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		FC3417B72A07CFD700148520 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC7DFDFD2A13745900A38A3A /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		FCB1D71D2A02DA4300ACC3DF /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		FCB7FEDC2A02E2CC0034D214 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		FCB7FEDE2A02E43D0034D214 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 				FC06922D29FEB20B00F3211B /* CategoryCollectionViewCell.xib */,
 			);
 			path = CategoryCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		FC7DFDFC2A13743B00A38A3A /* LoadingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FC7DFDFD2A13745900A38A3A /* LoadingViewController.swift */,
+			);
+			path = LoadingViewController;
 			sourceTree = "<group>";
 		};
 		FCB1D71C2A02DA1E00ACC3DF /* CustomAlert */ = {
@@ -122,6 +132,7 @@
 		FCF4FA7E29FAA56600B61F20 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC7DFDFC2A13743B00A38A3A /* LoadingViewController */,
 				FCEAA41D2A0E657B00735747 /* Model */,
 				FCEAA41A2A0E624000735747 /* TutorialScreen */,
 				FCB1D71C2A02DA1E00ACC3DF /* CustomAlert */,
@@ -256,6 +267,7 @@
 				FCB7FEDF2A02E43D0034D214 /* AlertView.swift in Sources */,
 				FCC42B7E2A0017D30052BCEC /* ItemTableViewController.swift in Sources */,
 				FCB7FEE12A02E65C0034D214 /* Nib.swift in Sources */,
+				FC7DFDFE2A13745900A38A3A /* LoadingViewController.swift in Sources */,
 				FCF4FA8A29FAA56600B61F20 /* DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
