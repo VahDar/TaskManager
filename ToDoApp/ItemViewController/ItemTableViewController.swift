@@ -9,23 +9,26 @@ import UIKit
 import CoreData
 
 class ItemTableViewController: UITableViewController {
-    
+    var categoryCell = CategoryCollectionViewCell()
     var itemArray = [Item]()
+   
+    
     var selectedCategory: Category? {
         didSet {
             loadItems()
         }
     }
     
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundView = UIImageView(image: UIImage(named: "backscreen"))
         
     }
     
-    
+   
+
     // MARK : - TableView Datasource Method
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,22 +43,28 @@ class ItemTableViewController: UITableViewController {
         cell.textLabel?.text = itemArray[indexPath.row].titel
         
         cell.accessoryType = itemArray[indexPath.row].done ? .checkmark : .none
-        
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        cell.layer.cornerRadius = 15
+        cell.tintColor = UIColor.black
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let deleteCategory = itemArray[indexPath.row]
-            context.delete(deleteCategory)
-            itemArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            //            saveItems()
-        }
+
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
+            -> UISwipeActionsConfiguration? {
+            let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
+                let deleteCategory = self.itemArray[indexPath.row]
+                self.context.delete(deleteCategory)
+                self.itemArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                completionHandler(true)
+            }
+            deleteAction.image = UIImage(systemName: "trash")
+            deleteAction.backgroundColor = #colorLiteral(red: 0.6966595054, green: 0.9517976642, blue: 0.8750553727, alpha: 1)
+        
+            let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+            return configuration
     }
+
     
     //MARK: - TableView Delegate Method
     

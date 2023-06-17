@@ -22,19 +22,17 @@ class AlertView: UIView {
     @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var deleteButton: AlertButton!
     @IBOutlet weak var saveButton: AlertButton!
-    
     @IBOutlet weak var textField: UITextField!
+    
     var delegate: AlertDelegate?
-    
     var categoryCell: CategoryCollectionViewCell!
-    
     var data: Category!
+    var notificationCenter = UNUserNotificationCenter.current()
     
-    func configureCell(with categoryCell: CategoryCollectionViewCell) {
-        self.categoryCell = categoryCell
-    }
+    //Mark: - Configure
     func configure() {
         datePicker.datePickerMode = .dateAndTime
+        datePicker.date = Date()
         let localeID = Locale.preferredLanguages.first
         datePicker.locale = Locale(identifier: localeID!)
         datePicker.addTarget(self, action: #selector(doneAction), for: .valueChanged)
@@ -46,44 +44,48 @@ class AlertView: UIView {
         monthFormatter.dateFormat = "MMM"
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
-
+        
         self.data.dayField = dayFormatter.string(from: self.datePicker.date)
         self.data.monthField = monthFormatter.string(from: self.datePicker.date)
         self.data.timeField = timeFormatter.string(from: self.datePicker.date)
     }
     
-    
+    // MARK: -  Notification
     func scheduleLocalNotification(){
-      //checking the notification setting whether it's authorized or not to send a request.
         
+        let notificationId = UUID().uuidString
+        data.notificationId = notificationId
+        //checking the notification setting whether it's authorized or not to send a request.
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             if settings.authorizationStatus == UNAuthorizationStatus.authorized{
-              //1. create contents
+                //1. create contents
                 let content = UNMutableNotificationContent()
-                    content.title = "Complete your todo"
-                    content.body = "body"
-                    content.sound = UNNotificationSound.default
+                content.title = "Complete your todo"
+                content.body = "body"
+                content.sound = UNNotificationSound.default
                 //2. create trigger [calendar, timeinterval, location, pushnoti]
+                
                 let dateInfo = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: self.datePicker.date)
+                
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
                 //3. make a request
-                let request = UNNotificationRequest(identifier: "identifier", content: content, trigger: trigger)
-                let notificationCenter = UNUserNotificationCenter.current()
-                notificationCenter.add(request) { (error) in
+                let request = UNNotificationRequest(identifier: notificationId, content: content, trigger: trigger)
+                self.notificationCenter.add(request) { (error) in
                     if error != nil{
                         print("error in notification! ")
                     }
                 }
-           }
-           else {
-              print("user denied")
-           }
-       }
+            }
+            else {
+                print("user denied")
+            }
+        }
+        
     }
-    
+
     @IBAction func switchButton(_ sender: UISwitch) {
         delegate?.switchButton(sender)
-       
+        
     }
     
     @IBAction func deleteButtonPressed(_ sender: Any) {

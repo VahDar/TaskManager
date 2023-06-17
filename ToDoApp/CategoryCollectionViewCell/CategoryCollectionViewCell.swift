@@ -18,8 +18,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeField: UITextField!
    
     var category: Category!
-    
-    var alertView: AlertView!
+    var categoryVC: CategoryViewController!
+    var alertView = AlertView()
     static let indetifier = "CategoryCollectionViewCell"
     
     static func nib() -> UINib {
@@ -28,7 +28,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
     
    
@@ -39,7 +38,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         self.timeField.text = timeField
     }
     
-    public func congigure() {
+    public func configure() {
         self.nameLael.text = category!.name
         dayField.borderStyle = .none
         monthField.borderStyle = .none
@@ -47,7 +46,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         viewCell.layer.cornerRadius = 25
         
         layer.cornerRadius = 25
-        layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.1024318114, green: 0.262429893, blue: 0.2818117142, alpha: 1)
         layer.borderWidth = 1
         layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         layer.shadowRadius = 9
@@ -64,23 +63,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         self.monthField.text = category.monthField
         self.timeField.text = category.timeField
     }
-    private func setupGestureLongRecognizer() {
-        let gesturLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-        gesturLongPress.minimumPressDuration = 0.5
-        gesturLongPress.delaysTouchesBegan = true
-//        gesturLongPress.delegate = self
-
-        self.addGestureRecognizer(gesturLongPress)
-    }
-    
-    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
-
-        guard gestureRecognizer.state != .began else { return }
-
-            print("long press")
-        }
-    
-
 }
 
 

@@ -7,6 +7,8 @@ import UIKit
 import CoreData
 
 class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
+   
+    
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var button: UIBarButtonItem!
@@ -14,10 +16,12 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var labelTaks: UILabel!
     @IBOutlet weak var labelManager: UILabel!
     
+    var category: Category?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var categoryArray = [Category]()
     
+    
+    var categoryArray = [Category]()
     var indexPathforhendler: IndexPath?
     
     private lazy var alertView: AlertView = {
@@ -68,29 +72,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         visualEffectView.alpha = 0
     }
     
-    func animateIn() {
-        
-        alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        alertView.alpha = 0
-        
-        UIView.animate(withDuration: 0.4) {
-            self.visualEffectView.alpha = 1
-            self.alertView.alpha = 1
-            self.alertView.transform = CGAffineTransform.identity
-        }
-    }
-    
-    func animateOut() {
-        
-        UIView.animate(withDuration: 0.4, animations: {
-            self.visualEffectView.alpha = 0
-            self.alertView.alpha = 0
-            self.alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        }) { _ in
-            self.alertView.removeFromSuperview()
-        }
-        
-    }
+   
     
     //MARK: - Data Manipulation Methods
     
@@ -151,14 +133,35 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // MARK: - Set AlertView
+    func animateIn() {
+        
+        alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        alertView.alpha = 0
+        UIView.animate(withDuration: 0.4) {
+            self.visualEffectView.alpha = 1
+            self.alertView.alpha = 1
+            self.alertView.transform = CGAffineTransform.identity
+    }
+}
+    
+    func animateOut() {
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.visualEffectView.alpha = 0
+            self.alertView.alpha = 0
+            self.alertView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        }) { _ in
+            self.alertView.removeFromSuperview()
+    }
+}
     
     func setAlert() {
         view.addSubview(alertView)
         alertView.center = view.center
         alertView.configure()
-    }
+}
     
-    // MARK: - Setup LongPress Gestur recognizer
+//     MARK: - Setup LongPress Gestur recognizer
     private func setupGestureLongRecognizer() {
         let gesturLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         gesturLongPress.minimumPressDuration = 0.5
@@ -166,7 +169,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         gesturLongPress.delegate = self
         self.collectionView.addGestureRecognizer(gesturLongPress)
     }
-    
+
     @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         
         guard gestureRecognizer.state != .began else { return }
@@ -177,12 +180,20 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
             let alert = UIAlertController(title: "options", message: "", preferredStyle: .alert)
             let delete = UIAlertAction(title: "Delete", style: .destructive) { delete in
                 let deleteCategory = self.categoryArray[indexPath.row]
+                
+                
                 self.context.delete(deleteCategory)
                 self.categoryArray.remove(at: indexPath.row)
                 self.collectionView.deleteItems(at: [indexPath])
+                if let notificationId = deleteCategory.notificationId {
+                    print("Notification ID: \(notificationId)")
+                    self.alertView.notificationCenter.removePendingNotificationRequests(withIdentifiers: [notificationId])
+                } else {
+                    print("Notification ID is nil or not set")
+                }
                 self.saveCategories()
             }
-            
+
             let edit = UIAlertAction(title: "Edit", style: .default) { edit in
                 self.alertView.data = self.categoryArray[indexPath.row]
                 self.alertView.switchButton.isOn = false
@@ -260,7 +271,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.indetifier, for: indexPath) as! CategoryCollectionViewCell
         
         cell.category = categoryArray[indexPath.row]
-        cell.congigure()
+        cell.configure()
         
         return cell
     }
@@ -279,6 +290,7 @@ extension CategoryViewController: AlertDelegate {
 }
     
     func deleteButtonPressed() {
+        
         animateOut()
         
 }
