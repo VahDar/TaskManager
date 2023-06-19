@@ -11,15 +11,12 @@ import CoreData
 class ItemTableViewController: UITableViewController {
     var categoryCell = CategoryCollectionViewCell()
     var itemArray = [Item]()
-   
-    
     var selectedCategory: Category? {
         didSet {
             loadItems()
         }
     }
     
-
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -48,7 +45,7 @@ class ItemTableViewController: UITableViewController {
     }
     
 
-    
+    // MARK: - Delete slide button
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
             -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in

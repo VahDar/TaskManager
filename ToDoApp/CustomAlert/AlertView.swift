@@ -60,8 +60,8 @@ class AlertView: UIView {
             if settings.authorizationStatus == UNAuthorizationStatus.authorized{
                 //1. create contents
                 let content = UNMutableNotificationContent()
-                content.title = "Complete your todo"
-                content.body = "body"
+                content.title = "Complete your task"
+                content.body = self.data.name ?? ""
                 content.sound = UNNotificationSound.default
                 //2. create trigger [calendar, timeinterval, location, pushnoti]
                 

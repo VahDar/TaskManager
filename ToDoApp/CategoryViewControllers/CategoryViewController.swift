@@ -105,20 +105,26 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let action = UIAlertAction(title: "Add category", style: .default) { (action) in
             
-            let newCategory = Category(context: self.context)
-            if textField.text!.isEmpty {
-                textField.text! = "New Category"
-                newCategory.name = textField.text!
-                newCategory.isSelected = false
-                self.categoryArray.append(newCategory)
-                self.saveCategories()
-            } else {
-                newCategory.name = textField.text!
-                newCategory.isSelected = false
-                self.categoryArray.append(newCategory)
-                self.saveCategories()
-            }
-        }
+            let categoryName = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                   let isUnique = self.categoryArray.allSatisfy { $0.name != categoryName }
+                   if isUnique {
+                       let newCategory = Category(context: self.context)
+                       if categoryName.isEmpty {
+                           let categoryCount = self.categoryArray.count
+                           newCategory.name = "New Category \(categoryCount + 1)"
+                       } else {
+                           newCategory.name = categoryName
+                       }
+                       newCategory.isSelected = false
+                       self.categoryArray.append(newCategory)
+                       self.saveCategories()
+                   } else {
+                       let errorAlert = UIAlertController(title: "Error", message: "Category name must be unique", preferredStyle: .alert)
+                       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                       errorAlert.addAction(okAction)
+                       self.present(errorAlert, animated: true, completion: nil)
+                   }
+               }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in}
         
         alert.addTextField{ (alertTextfield) in
@@ -174,13 +180,12 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         
         guard gestureRecognizer.state != .began else { return }
         let point = gestureRecognizer.location(in: self.collectionView)
-        let indexPath = self.collectionView.indexPathForItem(at: point)
-        if let indexPath {
+        
+        if let indexPath = self.collectionView.indexPathForItem(at: point) {
             
             let alert = UIAlertController(title: "options", message: "", preferredStyle: .alert)
             let delete = UIAlertAction(title: "Delete", style: .destructive) { delete in
                 let deleteCategory = self.categoryArray[indexPath.row]
-                
                 
                 self.context.delete(deleteCategory)
                 self.categoryArray.remove(at: indexPath.row)
@@ -194,20 +199,22 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.saveCategories()
             }
 
-            let edit = UIAlertAction(title: "Edit", style: .default) { edit in
-                self.alertView.data = self.categoryArray[indexPath.row]
-                self.alertView.switchButton.isOn = false
-                self.setAlert()
-                self.animateIn()
+            let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
+                        let selectedCategory = self.categoryArray[indexPath.row]
+                        self.alertView.data = selectedCategory
+                        self.alertView.switchButton.isOn = false
+                        self.setAlert()
+                        self.animateIn()
+                    }
+                    alert.addAction(delete)
+                    alert.addAction(edit)
+                    present(alert, animated: true, completion: nil)
+                    collectionView.reloadData()
+                } else {
+                    print("Could not work long press")
+                }
             }
-            alert.addAction(delete)
-            alert.addAction(edit)
-            present(alert, animated: true, completion: nil)
-            collectionView.reloadData()
-        } else {
-            print("Could not work long press")
-        }
-    }
+
     
     // MARK: - Setup Tap and Double Gesture
     func setupTapsGesture() {
