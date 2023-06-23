@@ -8,8 +8,6 @@ import CoreData
 
 class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
    
-    
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var button: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -18,9 +16,6 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var category: Category?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    
-    
     var categoryArray = [Category]()
     var indexPathforhendler: IndexPath?
     
@@ -71,8 +66,6 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         visualEffectView.alpha = 0
     }
-    
-   
     
     //MARK: - Data Manipulation Methods
     
@@ -186,7 +179,6 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
             let alert = UIAlertController(title: "options", message: "", preferredStyle: .alert)
             let delete = UIAlertAction(title: "Delete", style: .destructive) { delete in
                 let deleteCategory = self.categoryArray[indexPath.row]
-                
                 self.context.delete(deleteCategory)
                 self.categoryArray.remove(at: indexPath.row)
                 self.collectionView.deleteItems(at: [indexPath])
@@ -240,7 +232,6 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
         let point = gestureRecognizer.location(in: self.collectionView)
         let indexPath = self.collectionView.indexPathForItem(at: point)
         if indexPath != nil {
-
             let vc = storyboard?.instantiateViewController(identifier: "ItemVC") as! ItemTableViewController
             self.navigationController?.pushViewController(vc, animated: true)
             vc.selectedCategory = categoryArray[indexPath!.row]
@@ -276,10 +267,8 @@ extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.indetifier, for: indexPath) as! CategoryCollectionViewCell
-        
         cell.category = categoryArray[indexPath.row]
         cell.configure()
-        
         return cell
     }
 }
@@ -292,14 +281,11 @@ extension CategoryViewController: AlertDelegate {
         if sender.isOn {
             alertView.scheduleLocalNotification()
         } else {
-            
     }
 }
     
     func deleteButtonPressed() {
-        
         animateOut()
-        
 }
     
     func saveButtonPressed() {

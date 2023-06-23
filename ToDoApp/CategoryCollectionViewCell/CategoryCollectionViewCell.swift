@@ -45,6 +45,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         timeField.borderStyle = .none
         viewCell.layer.cornerRadius = 25
         
+        
         layer.cornerRadius = 25
         layer.borderColor = #colorLiteral(red: 0.1024318114, green: 0.262429893, blue: 0.2818117142, alpha: 1)
         layer.borderWidth = 1
