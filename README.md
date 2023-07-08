@@ -1,15 +1,26 @@
-# TheMovieDataBase 
+# TaskManager
 ---
-**Technologies**: Swift, UIKit, Async/Await, MVVM, RxSwift, REST API, Xib, CollectionView, URLSession, Realm, SDWebImage, youtube-ios-player-helper and other.
+**Technologies**: Swift, UIKit, CoreData, CollectionView, DatePicker, Xib, GestureRecognizer, Custom Alert, Notification and other.
 
-<img src="https://github.com/VahDar/TheMovieDataBaseApp/assets/118889967/79f1db4d-cf4a-49e2-99bb-ae47e26dba44" width="200" height="450"> <img src="https://github.com/VahDar/TheMovieDataBaseApp/assets/118889967/b10b8bf4-bd80-4e97-8f27-57f13ab98e45" width="200" height="450"> <img src="https://github.com/VahDar/TheMovieDataBaseApp/assets/118889967/07eef33e-f317-4b48-a61e-14fd5152e670" width="200" height="450">
 
-<img src="https://github.com/VahDar/TheMovieDataBaseApp/assets/118889967/59c97ad9-34d2-4101-9b5e-9236dff082e1" width="200" height="450">
-<img src="https://github.com/VahDar/TheMovieDataBaseApp/assets/118889967/02af427f-b615-405c-b500-97e3627cbf08" width="200" height="450">
-<img src="https://github.com/VahDar/TheMovieDataBaseApp/assets/118889967/5ce2c0b2-0a2f-440d-9053-9376bc9b9b24" width="200" height="450">
+<img src="https://github.com/VahDar/TaskManager/assets/118889967/b66815cd-1f91-4fa3-bed8-c7ae100ffdf9" width="200" height="450"> <img src="https://github.com/VahDar/TaskManager/assets/118889967/c3692f85-abec-4114-9aa8-f36b6376ec97" width="200" height="450"> <img src="https://github.com/VahDar/TaskManager/assets/118889967/b0e0d251-710b-4e81-bd8d-015a87e1ce90" width="200" height="450">
+<img src="https://github.com/VahDar/TaskManager/assets/118889967/bcc75f84-0559-48d1-9ee5-ac7ca2b5a2fb" width="200" height="450">
+
+<img src="https://github.com/VahDar/TaskManager/assets/118889967/bd75bf95-1395-430c-8c53-6ecd7ae0a4d0" width="200" height="450">
+<img src="https://github.com/VahDar/TaskManager/assets/118889967/21e5b6dc-c34f-4ddd-bde4-20701cf4489a" width="200" height="450">
+<img src="https://github.com/VahDar/TaskManager/assets/118889967/883f2b5c-baff-4e1f-90f8-92785198ba75" width="200" height="450">
+
 ---
 
-#### TMDB is an iOS application based on "The movie database" website. In this app, users can explore the latest updates in the film industry, access information about movies, TV shows, actors, and more. With a registration feature, users can create an account or alternatively access the app as a guest. The app categorizes movies and TV shows into various genres, allowing users to easily navigate through their preferred genres. It also features a detail screen that provides comprehensive information about each movie or TV show. Additionally, there is a search screen where users can quickly find specific titles or explore content based on keywords. The app also includes a "Favorites" feature, enabling users to save their preferred movies or shows for future reference.
+#### TaskManager is a powerful task organization and tracking application designed to help you stay organized and productive. With TaskManager, you can efficiently manage your tasks, create task categories, and maintain separate to-do lists for each category.
+
+### Key Features:
+
+   + Task Organization: Categorize your tasks to keep them well-organized and easily accessible.
+   + To-Do Lists: Create separate to-do lists for each task category, allowing you to focus on specific areas of your work.
+   + Notifications: Set up notifications for individual tasks to ensure you never miss an important deadline or appointment.
+   + Advanced Functionality: TaskManager offers a range of convenient features and tools to enhance your task management experience.
+   + Seamless Workflow: Streamline your work process and increase productivity with TaskManager's intuitive interface and user-friendly design.
 ---
 ## Requirements
 + iOS 16.1+
