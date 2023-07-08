@@ -6,6 +6,7 @@
         <attribute name="monthField" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="notificationId" optional="YES" attributeType="String"/>
+        <attribute name="switchButton" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="timeField" optional="YES" attributeType="String"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="parentCategory" inverseEntity="Item"/>
     </entity>

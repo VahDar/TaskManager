@@ -109,6 +109,7 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
                            newCategory.name = categoryName
                        }
                        newCategory.isSelected = false
+                       self.alertView.switchButton.isOn = false
                        self.categoryArray.append(newCategory)
                        self.saveCategories()
                    } else {
@@ -194,9 +195,11 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
             let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
                         let selectedCategory = self.categoryArray[indexPath.row]
                         self.alertView.data = selectedCategory
-                        self.alertView.switchButton.isOn = false
+                self.alertView.switchButton.isOn = false
+                
                         self.setAlert()
                         self.animateIn()
+                        
                     }
                     alert.addAction(delete)
                     alert.addAction(edit)
@@ -205,6 +208,8 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
                 } else {
                     print("Could not work long press")
                 }
+                        self.saveCategories()
+                    
             }
 
     
@@ -260,6 +265,17 @@ class CategoryViewController: UIViewController, UIGestureRecognizerDelegate {
 
 extension CategoryViewController: UICollectionViewDataSource {
     
+    
+//    func deleteNotification() {
+//        let deleteNotification = categoryArray[indexPathforhendler!.row]
+//        if let notificationId = deleteNotification.notificationId {
+//            print("Notification ID in switch: \(notificationId)")
+//            self.alertView.notificationCenter.removePendingNotificationRequests(withIdentifiers: [notificationId])
+//        } else {
+//            print("Notification ID in switch is nil or not set")
+//        }
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArray.count
     }
@@ -277,13 +293,22 @@ extension CategoryViewController: UICollectionViewDataSource {
 // MARK: - AlertView Delegate
 extension CategoryViewController: AlertDelegate {
     
+    
+    
     func switchButton(_ sender: UISwitch) {
         if sender.isOn {
             alertView.scheduleLocalNotification()
         } else {
+            if let indexPath = indexPathforhendler {
+                let deleteCategory = categoryArray[indexPath.row]
+                if let notificationId = deleteCategory.notificationId {
+                    self.alertView.notificationCenter.removePendingNotificationRequests(withIdentifiers: [notificationId])
+                } else {
+                    print("Notification ID in switch is nil or not set")
+                }
+            }
+        }
     }
-}
-    
     func deleteButtonPressed() {
         animateOut()
 }
